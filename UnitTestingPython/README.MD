@@ -6,7 +6,8 @@
 - Where **element of code** means a method or function.
 - These are automated and report a simple pass/fail to each test.
 - With the strictest definition, it must not use the filesystem, a database or the network.
-- You will import from the package `unittest`:
+- Those other tests might still be useful though.
+- You will import from the package `unittest`.
 ```python
 import unittest
 
@@ -16,15 +17,24 @@ class PhonebookTest( unittest.TestCase):
 ```
 - A **Test Case** is a test that can be run independently of other tests and is a *unit test*.
 - You will **Assert** a return value against what you expect to check for mode errors.
-- An example would be with `self.assertEqual()`.
+- For *Python3*, it is already builtin and can be called using `python3 -m unittest`.
+- While the examples are including the production and tests in the same place, you'd normally want to place them separate.
+- The default way to interpret these is the first argument is what you expect and the second is what you're testing:
+```python
+def test_lookup_entry_by_name(self):
+  phonebook = Phonebook()
+  phonebook.add('Bob', '12345')
+  self.assertEqual('12345', phonebook.lookup('Bob'))
+```
 - A **Test Runner** is a program that executes the test and displays the results.
-- For *Python3*, it is already builtin and can be called using `-m unittest`.
+- Let's see another example:
 ```python
 def test_missing_entry_raises_KeyError(self):
   phonebook = Phonebook()
   with self.assertRaises(KeyError):
     phonebook.lookup('missing')
 ```
+- You can request that it print the actual names of each test with `python3 -m unittest -v`.
 - You can run only a single test using `python3 -m unittest -q test_phonebook.PhonebookTest.test_lookup_entry_by_name`.
 - A **Test Suite** is just a bunch of *Test Cases* that can been ran together.
 - You use a decorator to tell the testing run to skip that test:
@@ -33,12 +43,21 @@ def test_missing_entry_raises_KeyError(self):
 ```
 - You can refactor code so that it uses a *Test Setup* function.
 - It's simply `def setUp(self)` and then whatever code you need inside it.
+```python
+def setUp(self):
+  self.phonebook = Phonebook()
+```
+- A **Test Fixture** is there to allow tests to only concern themselves with the actual test.
+- This is better since no matter what, `tearDown()` always gets run - even if something goes  wrong.
+- However, if there is an error in `setUP()` then `tearDown()` will not be run.
 - There is also a `def tearDown(self)` that runs after each case too.
 - A *Test Case* will have a name as well as three parts:
   1. Arrange: set up the object and collaborators.
   2. Act: Exercise the functionality on the object.
   3. Assert: Make claims about the object & its collaborators.
 - There can, and maybe should be, a fourth step called **Clean up**.
+- It is better to have separate test cases instead of mixing many into a single Case.
+- The assert statement `assertIn()` will check through an interable for the item.
 
 
 # Why and When Should You Write Unit Tests
@@ -67,7 +86,7 @@ def test_missing_entry_raises_KeyError(self):
 - You will see details such as the line that failed, the objects on both sides and the code around it.
 - You can add the error for pytest to include with `assert <assertion code>, 'Text to be used for printing'`.
 - To check for exceptions, you will need to import *pytest* and use the `pytest.raises( <KeyError> )` function.
-- You can also tell *pytest* to skip a test using `pytset.skip('text to display')`.
+- You can also tell *pytest* to skip a test using `pytest.skip('text to display')`.
 - If you use the decorator `@pytest.skip('text')` then the whole file is skipped with all the tests ignored.
 - Instead of setup and teardown functions, *pytest* uses decorator test fixtures instead.
 ```python
@@ -166,4 +185,5 @@ with patch('alarm.Sensor') as test_sensor_class:
 - io package?
 
 # Reference:
+- [Unit Test Documentation](https://docs.python.org/3/library/unittest.html)
 - [Martin Fowler Continuous Integration](www.martinfowler.com/articles/continuousIntegration.html)

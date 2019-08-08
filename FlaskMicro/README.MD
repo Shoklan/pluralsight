@@ -265,6 +265,7 @@ def validate_email( self, email_field):
 def validate_username( self, username_field):
 	if User.query.filter_by( username = username_field.data).first():
 		raise ValidationError('There is already a user with this username')
+```
 
 # Managing Bookmarks
 - Another jinja filter: truncate(char_limit, killwords=True)`

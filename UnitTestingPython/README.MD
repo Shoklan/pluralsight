@@ -62,18 +62,44 @@ def setUp(self):
 
 # Why and When Should You Write Unit Tests
 - There are a few reason why to labor through the *Testing Suite* building:
-  * Understand what you want to build.
-  * They document the code you've written.
-  * They help you design the units.
-  * They protect against regression in the project.
-- To understand what you need to build, you will certainly need to collaborate.
-- You can think of the tests as *Executable Specification*.
-- The tests will force you to decompose your problem into units that are independently testable.
-- A **Regression** is when something used to work but no longer does.
+1. Understand what you want to build.
+2.  They document the code you've written.
+  * Should be thought of as *Executable Specification*
+  * It shows you the intended use of the functions.
+3. They help you design the units.
+  * It will make sure you've decomposed the problem into units that are independently testable.
+  * Which should mean they are loosely coupled.
+  * Example of more testable code:
+![example of building a test double](images/example-test-double.png)
+4. They protect against regression in the project.
+  * A **Regression** is when something used to work but no longer does.
+  * The idea being that a unit test should tell you which test failed and why.
+  * And, it will also show you which parts are connected together:
+![Example of Code Change creating multiple test failures](images\coupled-failures.png)
+- Unit Testing cannot test correctness.
+- They're not very good an testing non-functional requirements and security.
 - There are three places for tests:
   1. Test First.
   2. Test Last.
   3. Test Driven.
+![Types of Individual Approaches to Tests](images/test-approaches.png)
+- Starting Tests Last.
+  * An *Advantage* is that you don't invest in tests until the design is stable.
+  * This avoids having to rewrite both the test cases and the code.
+  * This is also somewhat of a risk since the design might not be testable.
+  * Might miss cases when you run out of time to implement them.
+- Test First.
+  * This is where you can control the end image of the code since they'll need to confirm to your tests.
+  * There is a risk in reworking code again as you move down the design.
+  * This can cause you to refactor code constantly and never reach the end.
+- Test Driven Development
+  * This is an incremental process where you work back and forth between the test cases and the code.
+  * This is what Emily uses most of the time.
+- To understand what you need to build, you will certainly need to collaborate.
+- When writing the code, may companies use a **Continuous Integration Server**.
+- It will watch for changes to the code, pull them, run the tests and alert if there are errors.
+- This will only matter if the team takes is seriously.
+- It might also check for code coverage.
 
 
 # Using Pytest for Unit Testing in Python

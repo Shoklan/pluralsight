@@ -105,13 +105,30 @@ def setUp(self):
 # Using Pytest for Unit Testing in Python
 - We'll be switching over to using **PyTest** now.
 - **xUnit** is based on **JUnit** which is authored by Kent Beck and Erich Gamma.
+- The test cases we wrote before are arguably not very pythonic.
+- Some alternatives to unittest is *python-nose* and *pytest*.
 - *PyTest* is not included by default and you will need to install it yourself.
 - This can be done using `pip install -U pytest`.
+```python
+def test_add_and_lookup_entry():
+  phonebook = Phonebook()
+  phonebook.add( "Dude", '123')
+  assert '123' == phonebook.lookup('Dude')
+```
 - Functions and files *must* be prefixed with `test_` for *pytest* to find it.
 - When you run tests - using `python -m pytest` - it will show you relevant information around the failure.
 - You will see details such as the line that failed, the objects on both sides and the code around it.
 - You can add the error for pytest to include with `assert <assertion code>, 'Text to be used for printing'`.
-- To check for exceptions, you will need to import *pytest* and use the `pytest.raises( <KeyError> )` function.
+- In general, you shouldn't use this feature since pytest will give me more information.
+- To check for exceptions, you will need to import *pytest*.
+```python
+import pytest
+
+def test_missing_entry_raises_KeyError():
+  phonebook = Phonebook()
+  with pytest.raises(KeyError):
+    phonebook.lookup('missing')
+```
 - You can also tell *pytest* to skip a test using `pytest.skip('text to display')`.
 - If you use the decorator `@pytest.skip('text')` then the whole file is skipped with all the tests ignored.
 - Instead of setup and teardown functions, *pytest* uses decorator test fixtures instead.
@@ -121,18 +138,30 @@ def resource():
   return Resources()
 ```
 - The name of the function becomes the name of the resource and will be used by functions further down.
+- Make sure to pass those resources to the the functions in your test cases.
 - *Pytest* actually comes with quite a few fixtures built in by default.
-- If you need to clean up changes before moving on to the next test, then you'll include a **Finalizer** inside the fixutre.
+- If you need to clean up changes before moving on to the next test, then you'll include a **Finalizer** inside the fixture.
 ```python
-# ... other stuff
-def cleanup_resource():
-  # code to clean up.
-request.addfinalizer( cleanup_resource )
+@pytest.fixture
+def phonebook(request):
+  phonebook = Phonebook()
+  def cleanup_phonebook():
+    phonebook.clear()
+  request.add_finalizer(cleanup)
+  return phonebook
 ```
 - Don't forget to adjust the fixture call to accept a `request` object.
+- Check the latest version since there should be a better way to clean up.
 - *Pytest* can create a temporary directory that gets cleaned up after running.
 - The directory is actually one of the fixtures and is called `tmpdir`.
+```python
+@pytest.fixture
+def phonebook(tmpdir):
+  phonebook = Phonebook(tmpdir)
+  return phonebook
+```
 - You can see all the fixtures being added by appending `--fixtures` to you call to python.
+- You really should keep the test in memory and not put them on the file system though.
 - *Pytest* will still run *unittest* tests if it finds them in the directory.
 - They don't deal well with each other's fixtures though so be wary.
 

@@ -168,20 +168,50 @@ def phonebook(tmpdir):
 
 # Testable Documentation with Doctest
 - The point of doctest is to make documentation comments more truthful.
+- It's included by default in Python and is widely used.
+- Usually for three purposes:
+  1. Checking Docstring Examples.
+  2. Regression Testing.
+  3. Tutorial Documentation.
 - It's good practice to include **Docstrings** to document how to use your functions.
+[Example Docstring](images/example-docstring.png)
 - Those, however, end up out of date much of the time - which is where *doctest* comes in.
-- The tests are included in the docstring and will be pulled from there.
+- The tests are included in the docstring and will be pulled from there.\
+[Example of a Decent Docstring With Code](images/filled-docstring.png)
 - You run it using `python -m doctest <file>`; output is only displayed on errors.
 - If you want to see all the tests and the outputs then pass `-v`.
 - If you want *pytest* to find *doctest* then you need to pass `--doctest-modules` to *pytest*.
+```python
+python -m pytest --doctest-modules
+```
+- You can also do this for unittest but it requires some extra code:
+```python
+import unittest
+import doctest
+# your other imports
+
+def load_tests(loader, tests, ignore):
+  tests.addTests( doctest.DocTestSuite(<package>))
+```
+- When running the tests, pytest will stop with the first error while Doctest will use `>>>` to imply it is a case to run and run them all.
 - *Doctest* is a stickler about exact results and variable outputs will sometimes throw false positives.
+- You will see this with items like dictionaries, floating point numbers or object ids.
 - You can intentionally sort the results so it's not dependent on the machine.
 - *Doctest* is careful to strip out the line information when testing for Type Errors.
 - It also uses `...` to stand for text you don't care about.
+[Exluded Traceback Example](images/ellipsis-docstring.png)
 - You can tell *doctest* to ignore output using `#doctest: +ELLIPSIS`.
-- Using wildcards can be dangerous.
+[Ellipsis Inline Example](images/ellipsis-inline.png)
+- Using wildcards can be dangerous; it can match much more than you meant it to.
+- Sometimes we care more about the regression part than the doctest part.
+- And, you can put your examples in a textfile to share and run on other systems.
 - You can request that *doctest* run a text file full of the tests using `python -m doctest <filename>`.
-- Make sure to import the python dependencies at the top of the file.
+- Make sure to import the python dependencies at the top of the file will the prerequisite `>>>`.
+- **Approval Testing Cycle**:
+[Approval Testing Cycle](images/approval-testing.png)
+- If you include all those doctests in the actual files then it will be included in your functions and therefore slow them down.
+- If they're for examples, put them in the program.
+- If they're in for regression testing, put them in a separate file.
 
 
 # Test Doubles: Mocks, Fakes and Stubs

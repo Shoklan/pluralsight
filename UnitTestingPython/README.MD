@@ -181,7 +181,7 @@ def phonebook(tmpdir):
 - You run it using `python -m doctest <file>`; output is only displayed on errors.
 - If you want to see all the tests and the outputs then pass `-v`.
 - If you want *pytest* to find *doctest* then you need to pass `--doctest-modules` to *pytest*.
-```python
+```
 python -m pytest --doctest-modules
 ```
 - You can also do this for unittest but it requires some extra code:
@@ -199,16 +199,16 @@ def load_tests(loader, tests, ignore):
 - You can intentionally sort the results so it's not dependent on the machine.
 - *Doctest* is careful to strip out the line information when testing for Type Errors.
 - It also uses `...` to stand for text you don't care about.
-[Exluded Traceback Example](images/ellipsis-docstring.png)
+![Exluded Traceback Example](images/ellipsis-docstring.png)
 - You can tell *doctest* to ignore output using `#doctest: +ELLIPSIS`.
-[Ellipsis Inline Example](images/ellipsis-inline.png)
+![Ellipsis Inline Example](images/ellipsis-inline.png)
 - Using wildcards can be dangerous; it can match much more than you meant it to.
 - Sometimes we care more about the regression part than the doctest part.
 - And, you can put your examples in a textfile to share and run on other systems.
 - You can request that *doctest* run a text file full of the tests using `python -m doctest <filename>`.
 - Make sure to import the python dependencies at the top of the file will the prerequisite `>>>`.
 - **Approval Testing Cycle**:
-[Approval Testing Cycle](images/approval-testing.png)
+![Approval Testing Cycle](images/approval-testing.png)
 - If you include all those doctests in the actual files then it will be included in your functions and therefore slow them down.
 - If they're for examples, put them in the program.
 - If they're in for regression testing, put them in a separate file.
@@ -217,21 +217,45 @@ def load_tests(loader, tests, ignore):
 # Test Doubles: Mocks, Fakes and Stubs
 - **Test Double** is when a class under test doesn't know it's not talking to a real object.
 - This allows you to control what happens to the class while being tested.
+- There are many kinds of *Test Doubles*:
+![Test Doubles](/images/test-double-types.png)
 - A **Stub** is something that stands in for a class of function that is difficult to use in a test case.
+- The example would be to pass a configured sensor object:
+```python
+def __init__(self, sensor=None):
+  # ...
+  self._sensor = sensor or Sensor()
+  # ...
+```
+- Then you include it in the test:
+```python
+def test_check_too_low_presure_sounds_alarm(self):
+  alarm = Alarm( sensor = TestSensor() )
+  self.assertFalse( alarm.is_alarm_on)
+```
 - *unittest* comes with something called **Mock** for building stubs.
 - You import it with `from unittest.mock import Mock`.
 - You instantiate and object usiing `Mock( <object> )`.
 - You can then assign values using ` obj.value_to_test.return_value = <n>`.
 - A *Mock* and a *Stub* are technically not the same thing, but it's not uncommon for people to mistake this.
+- An advantage of using a *Mock* is that it will make sure the interface is the same as the object you're really using.
 - The **Fake Object** is like a *stub* but it has usable functions and methods.
-- Remember, it is better to not write files and tests should remain memeory bound as much as possible.
+- Remember, it is better to not write files and tests should remain memory bound as much as possible.
+- There is a function in the io package for python that will act as if it's a file in memory called StringIO.
+![Example of a Fake using StringIO](images/Fake-example.png)
 - It is common to use *Fakes* for files, databases and web server responses.
-- **Mocks** makes assertions about what actualy happened in the test case.
+- **Mocks** makes assertions about what actually happened in the test case.
+- A *Mock* can cause a test to fail; a *Stub* wont.
 - There are three kinds of *assertions*:
-  1. Check return value.
-  2. Check the state.
-  3. Check a method call.
+  1. Check return value.  (common)
+  2. Check the state.     (common)
+  3. Check a method call. (uncommon)
+- "With a *Mock* you can check a particular method call was made with to a particular object with particular arguments."
+![Mock Example](images/Mock-example.png)
 - A **Spy** is something that gets passed along and collects what happens.
+- The difference between a Spy and a Mock is that the Mock throws at Action step while Spy throws at Assert step.
+![ Example Spy](images/Spy-example.png)
+
 - It can be a decorator that runs along with it.
 - **Dummy Objects** is used when you have a required argument that is not necessary for the test.
 - **Monkeypatching** is when you dynamically change code at runtime.

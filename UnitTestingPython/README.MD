@@ -255,12 +255,14 @@ def test_check_too_low_presure_sounds_alarm(self):
 - A **Spy** is something that gets passed along and collects what happens.
 - The difference between a Spy and a Mock is that the Mock throws at Action step while Spy throws at Assert step.
 ![ Example Spy](images/Spy-example.png)
-
 - It can be a decorator that runs along with it.
 - **Dummy Objects** is used when you have a required argument that is not necessary for the test.
+- This doesn't happen very often and if it does then you have a required arguement that shouldn't be required.
+![Summary of Types of Test Doubles](images/Summary.png)
 - **Monkeypatching** is when you dynamically change code at runtime.
 - Also called **Metaprogramming**.
-- You do this with `with patch('alarm.Sensor') as test_sensor_class`.
+- You have to tell patch which module you'll want to path and not which class it's actually in.
+- An example would be `with patch('alarm.Sensor') as test_sensor_class` even though it's defined in `sensor.py`.
 - You will need to build a Mock to compare against:
 ```python
 with patch('alarm.Sensor') as test_sensor_class:
@@ -272,6 +274,8 @@ with patch('alarm.Sensor') as test_sensor_class:
   self.assertTrue( alarm.is_alarm_on )
 ```
 - You can also use a declaration syntax by adding `@path('alarm.Sensor')` above the call and cut out the with statement.
+![Example of Metaprogramming](images/metaprogramming-example.png)
+- You should think of *Monkey Patching* as a last resort since it implies code smell.
 
 
 # Test Coverage and Parameterized Tests

@@ -281,14 +281,28 @@ with patch('alarm.Sensor') as test_sensor_class:
 # Test Coverage and Parameterized Tests
 - **Parameterized Test Cases** is when you define combinations of what you expect, and then generalize function such that it tests all expect combinations.
 - You will need an object, array, or dictionary to store the data along with a function that can return a function.
-- We're going to go over now how to manage coverage documentation.
-- You're going to need to install `pip-3.3 install coverage pytest-cov`.
+![Record Keeping](images/record-keeping.png)
+- Doing something like this in *pytest* is actually easier since it has a decorator for it: `@pytest.mark.parametrize()`:
+![PyTest Parameterize](images/pytest-parameterized.png)
+- Adding comments to your parameters will make the test failures easier to reason about.
+- We're going to now go over how to manage coverage documentation.
+- You're going to need to install them with `python -m pip install coverage pytest-cov`.
+- To ask it to check for coverage, you'll need to tell it what module.
 - To have *Pytest* manage this you'll need to run `python3 -m pytest --cov-report term-missing --cov tennis`.
-- If you want an html report instead, then you'd pass `html` instead of `term-missing`.
-- If you want a function to be skipped, then just add the comment `# pragma: no cover`.
+- If you want an HTML report instead, then you'd pass `html` instead of `term-missing`.
+- If you want a function to be skipped, then just add the comment `# pragma: no cover` on the function definition.
 - You can also generate a report using unittest using `python3 -m converage run -m unittest`.
+- This will only generate the data but it not display.
 - Then, you build the report using `python3 -m coverage report`.
 - If you want an html version, then you pass `html` instead of `report`.
+- **Coverage Branch** is when a Coverage Test tells you if all outcomes at a logical branch have been traversed.
+- This will add the metric *partial* to your coverage.
+- To do this for PyTest, you'll need a `.coveragerc` file:
+```
+# in the file
+[run]
+branch = True
+```
 
 
 # Research:

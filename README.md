@@ -7,3 +7,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Introduction to Flask Microframework    | [/FlaskMicro]                     |   { ? }        |
 | Rasberry Pi for Developrs               | [/PiForDevelopers]                |   { ? }        |
 | Python: Getting Started                 | [/PythonGettingStarted]           |   { ? }        |
+| Vue.js: Big Picture                     | [/VuejsBigPicture]                |   {}           |

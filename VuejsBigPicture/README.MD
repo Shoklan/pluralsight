@@ -84,12 +84,40 @@
 
 
 # The Vue Ecosystem
+- We're now be talking about libraries outside of Vue.js and have their own separate NPM install.
+- To get the kind of functionality that comes with other libraries, you will require these.
+- Here are some libraries and what they do:
+  * **nuxt**: Universal Rendering.
+  * **vuex**: State Management.
+  * **vuetify**: Component Framework.
+  * **vue-cli**: Scaffolding and Build.
+- *Nuxt* is used to create universal Vue applications.
+- While these are complicated - and we wont be covering them - these kinds of apps doe load faster.
+- *Vuex* provides a way to update the state of your app.
+- It's used to keep applications with massive state manageable.
+- *Vuetify* contains sleep and performant Vue Components.
+- You would use this if you were creating your own solution for UI.
+- *Vue-cli* is a tool for creating, building and updating Vue Applications.
+- Some example commands:
+  * `vue serve`: Server the application to your browser.
+  * `vue build`: Converts the .vue files and converts them to JS,HTML.
+  * `vue create`: Creates a new Vue project.
+  * `vue ui`:  Creates a new Vue project.
+  * `vue add`: installs plugins for Vue-cli
+![File Size - Minimized of Comparable Frameworks](images/)
+- There are some pitfalls to the framework.
+  * Needs support from ecosystem.
+  * Tricky reactivity.
+  * .vue may confuse new devs.
+  * It's new and untested in some untested areas.
 
 
 # Reference:
 - [Vue.js Github Page](https://github.com/vuejs/vue)
 - [Vue.js Documentation](https://vuejs.org)
--
+- 
 
 
 # Research:
+- Flux?
+- Redux?

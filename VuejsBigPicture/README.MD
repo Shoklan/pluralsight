@@ -25,14 +25,41 @@
   * Large teams collaborating can still find it useful; huge projects might not benifit.
   * Small contractors trying to update a legacy site.
     * You can *spot modify* sections of websites by filling it in with Vue.js
+- Vue.js is a JavaScript library that is executed before your code to give it context.
+- It is really JS code to build a **Render Engine** which is a kind of data model.
+- It is a collaboration tool.
+- What are the core features?:
+  * Versatile Components.
+  * It also has built-in Reactivity.
+  * Fast initial load, fast render.
+  * It comes with many directives.
+- Vue files are appended with `.vue`
+- These files are a conglomeration of HTML, CSS and JS code.
+- These cannot be opened by web browsers.
+- This means there is a build step to convert it from a `.vue`.
+- This allows all the code for one component to be in a single file.
+- These files have three sections:
+  1. Template Section.
+  2. Script Section.
+  3. Style Section.
+- The **Template** section contains HTML.
+- The **Script** section contains application code.
+- The **Styles** section contains the styles contained to this component.
+- This is dependent on NPM to run.
+- If you have it installed then you can install it using `npm install vue`.
 
 
 # Why Use Vue.js
-- 
+-
 
 
 # The Vue Ecosystem
 
+
 # Reference:
+- [Vue.js Github Page](https://github.com/vuejs/vue)
+- [Vue.js Documentation](https://vuejs.org)
+-
+
 
 # Research:

@@ -115,7 +115,6 @@
 # Reference:
 - [Vue.js Github Page](https://github.com/vuejs/vue)
 - [Vue.js Documentation](https://vuejs.org)
-- 
 
 
 # Research:

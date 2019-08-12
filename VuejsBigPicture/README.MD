@@ -50,7 +50,37 @@
 
 
 # Why Use Vue.js
--
+- What it does:
+  * Output HTML Code for browsers.
+  * Maps user interactions to JS methods you write.
+  * Uses sophisticated techniques to speed up the rendering of applications.
+  * Works in most browsers without any build step.
+- What it doesn't do:
+  * Create a server for your application.
+  * Test your code for errors.
+  * Significant Utility methods.
+  * No routing.
+  * No provided solution for modules beyond native ES6 support.
+- **Reactivity** is the way in which applications change due to inputs from users or Servers.
+- This is the principle problem Vue.js tries to solve.
+- This is important because JS doesn't have built in reactivity.
+![Developers vs Users](images/vue-reactivity-user-vs-Devs.png)
+- A potential problem is that vue.js doesn't behave consistently with arrays and objects.
+- There are techniques that have been developed to give the hint to vue.js to update.
+- The element in the play application tags the div with `id="app"` which is where it will get dropped into.
+- Where should you use Vue.js?:
+  * Modernizing Legacy Applications.
+  * Build Applications as a Team.
+  * Prototyping.
+- Vue.js can be included incrementally.
+- It can co-exist with React/Angular without getting in the way.
+- Benefits are felt immediately.
+- So should you?:
+  * Simple changes to the View Layer.
+  * When new features are requested but are embedded in other code.
+  * Application Code is ad-hoc.
+- Where Vue.js shines is setting up and prototyping.
+- And, there is very little difference between Vue.js prototypes and real Vue.js Apps.
 
 
 # The Vue Ecosystem

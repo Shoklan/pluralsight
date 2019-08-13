@@ -117,10 +117,29 @@ var isLocal = location.host.includes('localhost'):
 ![Whitelisted JS for Sandbox](images\bindings-whitelist.png)
 - Global that are white listed cannot be used in Vue Expressions.
 - This includes Jquery $.
-- 
 
 
 # Binding with Forms in Vue.js
+- The main way to collect data through the web is via forms.
+- Two way bindings can be created using the `v-model` directive.
+- A *Text Field* is usually created with two tags: input and textarea.
+- Vue has support for the following Text Inputs:
+![Textual Input Types Supported](images\supported-text-inputs.png)
+- Vue does not support using mustaches for binding in a textarea.
+- Binding to a checkbox is basically the same except you need to set the type to checkbox.
+- However, binding to multiple values is tricky and you'd want to add the values to an array.
+- Drop downs can be created using a select element.
+- By default, Vue syncs the data whenever a input event is fired.
+- Once it fires, the input can go through several modifiers:
+  * Trim string values.
+  * Convert input values to numbers.
+- The `trim` modifier will remove leading and trailing whitespace, tabs and linebreaks.
+- If you want it to be run, then you append it: `v-model.trim`.
+- The `number` modifier will try and convert user input into a number.
+- If you want it to be run, then you append it: `v-model.number`.
+- The onchange event is different since it only fires after the element has lost focus.
+- If you want this feature then you'll append it `v-model.lazy`.
+
 
 # Responding to User Events in Vue.js
 

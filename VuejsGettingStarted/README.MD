@@ -103,7 +103,7 @@ v-bind:style="{ color:color }"
 fontFAmily:appNameFontFamily
 ```
 - You can refactor all the changes that you'd want to make and include them on the data side and load them with `v-bind:"appStyle"`.
--
+- 
 
 
 

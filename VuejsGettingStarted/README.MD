@@ -53,10 +53,61 @@ var growler = new Vue({
 - The creation state starts when you call the `Vue()` constructor.
 ![Vue Lifecycle](images/lifecycle-overview.png)
 - Note that you must call the destroy instance explicitly otherwise it will not run.
-- 
 
 
 # Creating Vue.js Templates
+- Templates are created as HTML.
+- The data property servers two purposes:
+  1. At design time, it represents the schema.
+  2. At runtime, servers as the model.
+- **Plain Old Javascipt Object (POJO)**
+- Vue makes shortcuts to the data properties for you to access.
+- When initialized, the `Object.defineProperty` function sets up the getters and setters of the object.
+- You can only modify properties that exists once declared.
+- You cannot add or remove them either.
+- Due to this, objects don't lookin like normal API calls:
+![Examples of Normal API call Vs Vue](images/api-expected-vs-normal.png)
+- Naming rules are:
+  * Letters, digits, dollar signs, underscores.
+  * Must start with a letter.
+  * Case sensitive
+  * Cannot use reserved words.
+- One specific rule only for Vue is that properties should not start with $ or _
+- The value of the property is what will show in the Vue.
+- **Data Properties should just be data!**.
+- Vue accepts primitive types but ignores other not native object types.
+- Example being: Number, String, Date, Array
+- Vue has two ways to bind text to a view:
+  * Semantic Syntax with `{{ }}`; also called moustaches.
+    * If the value does not exist, then it will replace it with an empty string.
+  * Declarative Bindings are created via directives.
+    * All baked in directives start with `v-`.
+    * Another example would be `v-text="appName"` which will do the same thing.
+    * If you need to bind to only part of an element then use semantic syntax.
+    * The directive `v-once` will only allow an element to change once and never again.
+    * Keep in mind that the children of an element with this directive will inherit it as well.
+    * You can pass raw html but you will need to use the `v-html` directive otherwise it shows as raw text.
+    * Note that you cannot nest bindings.
+    * Only bind to HTML you trust.
+    * Don't bind to User Generated HTML.
+- The directive `v-bind` is for binding to HTML attributes.
+- This allows you to bind data property values to HTML attributes.
+- This would look like `v-bind:src="appLogo"` but can also look like `:src="appLogo"`.
+- While you should keep your design separate from your logic, sometimes it's unavoidable.
+- When you have to, you'll need to choose between getting it from a JS object of a JS array.
+```
+v-bind:style="{ color:color }"
+```
+- If you need to change properties with - in them then you can use Camel Case and it will still work.
+```
+fontFAmily:appNameFontFamily
+```
+- You can refactor all the changes that you'd want to make and include them on the data side and load them with `v-bind:"appStyle"`.
+-
+
+
+
+
 
 # Binding with Forms in Vue.js
 

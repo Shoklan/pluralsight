@@ -56,8 +56,6 @@ var growler = new Vue({
 
 
 # Creating Vue.js Templates
-<<<<<<< HEAD
-=======
 - Templates are created as HTML.
 - The data property servers two purposes:
   1. At design time, it represents the schema.
@@ -105,12 +103,22 @@ v-bind:style="{ color:color }"
 fontFAmily:appNameFontFamily
 ```
 - You can refactor all the changes that you'd want to make and include them on the data side and load them with `v-bind:"appStyle"`.
+- You might have seen something like this before:
+```js
+var isLocal = location.host.includes('localhost'):
+```
+- An **Expression** is a type of **Statement**.
+- An *Expression* is defined as a line of code that produces a value.
+- Bindings can only be expressions.
+- For example, this code will change passed on whether something is online or offline:
+![Bindings Expression Example](images\bindings-expression-example.png)
+- *Expressions* run within a sandbox.
+- The total list of white listed items is:
+![Whitelisted JS for Sandbox](images\bindings-whitelist.png)
+- Global that are white listed cannot be used in Vue Expressions.
+- This includes Jquery $.
 - 
 
-
-
-
->>>>>>> 51ad242e2bd06ef140c8c377e7429ff984ab2d05
 
 # Binding with Forms in Vue.js
 

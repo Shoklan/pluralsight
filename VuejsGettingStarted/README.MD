@@ -210,8 +210,17 @@ Vue.config.keyCodes = {
 - You can also use `of` intead of `in` because it's more consistent with JS iterator syntax.
 - You can also the get the value, key, and index using `v-for="(v, k , i) in user" ... {{ i}}: {{ k }} - {{ v }}`.
 - Be wary of this since different JS engines return those in different orders.
-
-
+- When the `v-for` and `v-if` are used on the same element then the the for has higher priority.
+- When an array changes, we'll need to use **Mutation Functions**.
+- There are seven of them:
+  1. `sort()`: sorts the array; by default, elements treated like strings.
+  2. `reverse()`: reverses the elements in the array; no sorting.
+  3. `push()`: adds to end of list/array; returns the new length
+  4. `pop()`: removes the last element from a list/array; returns item taken out.
+  5. `shift()`: removes an item from the beginning of the list/array.
+  6. `unshift()`: adds an item to the beginning of list/array.
+  7. `splice()`: allows to add or remove from other places in the array.
+- You can also use the `splice()` function to actually update a single item in an array.
 
 # Conditional Rendering and Rendering of Lists
 

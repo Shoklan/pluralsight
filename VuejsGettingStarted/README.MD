@@ -111,10 +111,10 @@ var isLocal = location.host.includes('localhost'):
 - An *Expression* is defined as a line of code that produces a value.
 - Bindings can only be expressions.
 - For example, this code will change passed on whether something is online or offline:
-![Bindings Expression Example](images\bindings-expression-example.png)
+![Bindings Expression Example](images/bindings-expression-example.png)
 - *Expressions* run within a sandbox.
 - The total list of white listed items is:
-![Whitelisted JS for Sandbox](images\bindings-whitelist.png)
+![Whitelisted JS for Sandbox](images/bindings-whitelist.png)
 - Global that are white listed cannot be used in Vue Expressions.
 - This includes Jquery $.
 
@@ -124,7 +124,7 @@ var isLocal = location.host.includes('localhost'):
 - Two way bindings can be created using the `v-model` directive.
 - A *Text Field* is usually created with two tags: input and textarea.
 - Vue has support for the following Text Inputs:
-![Textual Input Types Supported](images\supported-text-inputs.png)
+![Textual Input Types Supported](images/supported-text-inputs.png)
 - Vue does not support using mustaches for binding in a textarea.
 - Binding to a checkbox is basically the same except you need to set the type to checkbox.
 - However, binding to multiple values is tricky and you'd want to add the values to an array.
@@ -139,6 +139,60 @@ var isLocal = location.host.includes('localhost'):
 - If you want it to be run, then you append it: `v-model.number`.
 - The onchange event is different since it only fires after the element has lost focus.
 - If you want this feature then you'll append it `v-model.lazy`.
+- Users have certain expectations about how an App will interact with them.
+- To manage this, you'll want to attach to events using `v-on` Directive.
+- Here is an example:
+```
+<button v-on:click='executeSearch">'
+```
+- The click can be replaced with anything that is supported by the HTML DOM events.
+- As a general rule, you can ignore  the *on* prefix that is normal in HTML.
+- The `executeSearch` is contained in `methods` element on the Vue side.
+- In a method, the keyword `this` is automatically bound to the Vue instance.
+- If you want to investigate the function call, you can include an optional event parameter in the call:
+![Passing Events to Event Handlers](images/passing-variables-to-event-handlers.png)
+- The `event` variable is a reserved variable in Vue.
+- There is also a syntactical sugar notation for `v-on`: `@click`.
+- As apps get bigger, then nesting is unavoidable and so we'll discuss **Event Propagation** now to manage this.
+- Events can propagate in two ways: Bubbling Up or Captured.
+- The default in Vue is Bubbling Up but you can enable capturing.
+![ Event Types ](images/event-propagation.png)
+- You can apply capturing using the capture modifier.
+- The `.prevent` modifier allows you to bypass the default behavior of an element.
+- We would use this with HTML submit buttons since this causes the page to reload.
+- While this prevents the default behavior, it doesn't stop the event propagation.
+- To do that you'd want the `.stop` modifier to cease event propagation.
+- There is also a `.once` modifier that only allows it to run once.
+- This is because Vue will remove the event handler once it's been fired.
+- Vue providers a way to handle common key events.
+- It provides 9 modifiers; when pressed the key code is passed:
+  1. Enter
+  2. Tab
+  3. Delete
+  4. Escape
+  5. Space
+  6. Up
+  7. Down
+  8. Left
+  9. Right
+![ Common Key Events](images/key-events.png)
+- You can also create you own key codes.
+- You can do this using the locally defined config property:
+```
+Vue.config.keyCodes = {
+  f1: 112
+}
+```
+- Vue also has some key codes for the mouse clicks: `.left`, `.middle`, `.right`.
+- On the vue side, it looks like this:
+```
+<div v-on:mousedown.left="onBlockClick">
+```
+- If you want to control the context menu for a user on your site using right click:
+![ Right Click Context ](images/right-context-menu.png)
+![ Mouse Event Compatibility](images/mouse-event-compatability.png)
+- You can also add keyboard shortcuts with special keys.
+![ Special Key Codes](images/special-modifier-key-codes.png)
 
 
 # Responding to User Events in Vue.js
@@ -154,3 +208,4 @@ var isLocal = location.host.includes('localhost'):
 
 # Research:
 - Snapdom?
+- self modifier?

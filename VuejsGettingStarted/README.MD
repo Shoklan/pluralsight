@@ -196,6 +196,22 @@ Vue.config.keyCodes = {
 
 
 # Responding to User Events in Vue.js
+- Vue has a lot of directives to conditionally show or hide elements.
+- You can hide elements until the view is compiled using the `v-cloak` directive.
+- However, to actually hide it you'll want to include `[v-cloak]{ display:none;}` in your CSS.
+- This will not impact the layout but only the visibility.
+- The directives `v-if`,`v-else` let you conditionally render content based on an expression.
+- Another directive that will do this is `v-show`.
+- What it actually does is conditionally sets the display attributes at runtime.
+- The directive for handling loops is `v-for`.
+- Make sure to put the directive on the element that you want to actually repeat.
+- For example, put it on `<li` instead of `<ul`.
+- Vue starts its indexing at 1 for loops.
+- You can also use `of` intead of `in` because it's more consistent with JS iterator syntax.
+- You can also the get the value, key, and index using `v-for="(v, k , i) in user" ... {{ i}}: {{ k }} - {{ v }}`.
+- Be wary of this since different JS engines return those in different orders.
+
+
 
 # Conditional Rendering and Rendering of Lists
 

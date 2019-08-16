@@ -9,3 +9,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Python: Getting Started                 | [/PythonGettingStarted]           |  { ? }         |
 | Vue.js: Big Picture                     | [/VuejsBigPicture]                |  {2019/08/12}  |
 | Vue.js: Getting Started                 | [/VuejsGettingStarted]            | {}             |
+| Developing Faster with Vue CLI          | [/VueCLI]                         | {}             |

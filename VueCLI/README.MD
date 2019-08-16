@@ -20,10 +20,17 @@ npm i -g @vue/cli @vue/cli-service-global
 
 
 # Setting UP the Vue CLI
-- 
+- Now we're going to talk about the prerequisites for Vue CLI.
+- The first one is Node.js .
+- One that's installed, you'll of course install vue like above.
+- You can also use yarn: `yarn global add @vue/cli`.
+- It's a good idea to verify the version with `--version`.
+- You can start the UI version with the command `vue ui`.
 
 
 # Mastering Essential Vue Tools
+- 
+
 
 # Creating a Vue Application
 

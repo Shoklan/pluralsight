@@ -139,6 +139,9 @@ var isLocal = location.host.includes('localhost'):
 - If you want it to be run, then you append it: `v-model.number`.
 - The onchange event is different since it only fires after the element has lost focus.
 - If you want this feature then you'll append it `v-model.lazy`.
+
+
+# Responding to User Events in Vue.js
 - Users have certain expectations about how an App will interact with them.
 - To manage this, you'll want to attach to events using `v-on` Directive.
 - Here is an example:
@@ -195,7 +198,7 @@ Vue.config.keyCodes = {
 ![ Special Key Codes](images/special-modifier-key-codes.png)
 
 
-# Responding to User Events in Vue.js
+# Conditional Rendering and Rendering of Lists
 - Vue has a lot of directives to conditionally show or hide elements.
 - You can hide elements until the view is compiled using the `v-cloak` directive.
 - However, to actually hide it you'll want to include `[v-cloak]{ display:none;}` in your CSS.
@@ -210,12 +213,47 @@ Vue.config.keyCodes = {
 - You can also use `of` intead of `in` because it's more consistent with JS iterator syntax.
 - You can also the get the value, key, and index using `v-for="(v, k , i) in user" ... {{ i}}: {{ k }} - {{ v }}`.
 - Be wary of this since different JS engines return those in different orders.
+- When the `v-for` and `v-if` are used on the same element then the the for has higher priority.
+- When an array changes, we'll need to use **Mutation Functions**.
+- There are seven of them:
+  1. `sort()`: sorts the array; by default, elements treated like strings.
+  2. `reverse()`: reverses the elements in the array; no sorting.
+  3. `push()`: adds to end of list/array; returns the new length
+  4. `pop()`: removes the last element from a list/array; returns item taken out.
+  5. `shift()`: removes an item from the beginning of the list/array.
+  6. `unshift()`: adds an item to the beginning of list/array.
+  7. `splice()`: allows to add or remove from other places in the array.
+- You can also use the `splice()` function to actually update a single item in an array.
 
 
+# Reacting to Data Changes with Filters, Computed Properties and Watchers
+- Now we'll move to how to detect updates.
+- The `watch:` inside the Vue watches for a change on the object.
+- Once that happens, it will call the associated function.
+```
+watch: {
+  shoppingCart: 'updateSubTotal'
+}
+```
+- You could also declare a full function instead of the shorter version like that.
+- The advantage would be that you can accept the `(latest, original)` states of the call and inspect them.
+- **Warning** Vue doesn't keep data copies for Objects and Arrays.
+- Watchers use a shallow monitoring approach; meaning they compare values by reference.
+- So, if you make changes to items in a list inside an object that is being watched then it wont update.
+- You can pass `deep: true` and that will allow it to monitor those internal objects.
+- Keep in mind that this will heavily impact performance so only use it whenever is makes sense.
+- **Computed Properties** are functions whose results are cached until their depending values change.
+- To setup an Computed Property, you setup something that looks like a method.
+- **Accessors** are computed properties that can get or set property values.
+![Example Configuring Accessor](images/example-accessor.png)
+- The best way to implement text transformations is filters.
+![Filter Example](images/example-filter.png)
+- Once the filter has been instantiated, you can access it via the `$options` property.
+```
+value = this.growler.$options.filters.<function>....
+```
+- You can also chain filters in the view.
 
-# Conditional Rendering and Rendering of Lists
-
-# Reading to Data Changes with Filters, Computed Properties and Watchers
 
 # Reference:
 - [Courses Github Repo](https://github.com/efofic/course-vue-getting-started)

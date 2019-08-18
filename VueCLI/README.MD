@@ -3,7 +3,7 @@
 
 # Getting Started with the Vue CLI
 - First we need to get it installed and we do that with:
-```bash
+```
 npm i -g @vue/cli @vue/cli-service-global
 ```
 - Once the App.vue is created, you can just run `vue server -o` and it will start it.
@@ -29,6 +29,9 @@ npm i -g @vue/cli @vue/cli-service-global
 
 
 # Mastering Essential Vue Tools
+- Now we'll explore a range of topics around the browser, console, etc.
+- You can instantiate a vue project without the beginner scaffolding using `-b` of `create`.
+- There is a plugin for the browser called **vue-devtools** that will present a better interface for Vue Projects in your browser.
 - 
 
 
@@ -39,5 +42,8 @@ npm i -g @vue/cli @vue/cli-service-global
 # Running Unit and End to End Tests
 
 # Refernce:
+- [Vue Documentattion](https://vuejs.org)
+- [heroes-vue project](https://github.com/johnpapa/heroes-vue)
+
 
 # Research:

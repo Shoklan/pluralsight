@@ -32,6 +32,7 @@ npm i -g @vue/cli @vue/cli-service-global
 - Now we'll explore a range of topics around the browser, console, etc.
 - You can instantiate a vue project without the beginner scaffolding using `-b` of `create`.
 - There is a plugin for the browser called **vue-devtools** that will present a better interface for Vue Projects in your browser.
+- You can set break points in the Development Tools in the UI.
 - 
 
 

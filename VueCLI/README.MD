@@ -36,10 +36,30 @@ npm i -g @vue/cli @vue/cli-service-global
 
 
 # Creating a Vue Application
-- 
+- Lots of thoughts go through a developer's mind about what the project should look like when it's started.
+- Now we're going to review what Vue comes with to assist with this.
+- Here are some of the aliases that we can use:
+![Listing of some Aliases](images/common-vue-create-options.png)
+- You can combine some of the vue options.
+- **Babel** is useful for older browsers.
+- **history mode for router** is for more modern routing.
+- You can create **Presets** which is a saved configuration of prompts that you can use when creating new projects.
+- They are saverd in a .vuerc file.
+- You can also save them in a *preset.json*.
+- If the preset somewhere else then you can point to that instead:
+```
+# git repo:
+vue create hello --reset <acct-name>/<repo-name>
+
+# local file:
+vue create hello --preset ~/<path>
+```
 
 
 # Building and SErving Vue
+- 
+
+
 
 # Running Unit and End to End Tests
 
@@ -49,3 +69,6 @@ npm i -g @vue/cli @vue/cli-service-global
 
 
 # Research:
+- Mocha Tester?
+- Chai Tester?
+- Jest Tester?

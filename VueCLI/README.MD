@@ -29,6 +29,8 @@ npm i -g @vue/cli @vue/cli-service-global
 
 
 # Mastering Essential Vue Tools
+
+- You can set break points in the Development Tools in the UI.
 - 
 
 

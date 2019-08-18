@@ -10,3 +10,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Vue.js: Big Picture                     | [/VuejsBigPicture]                |  {2019/08/12}  |
 | Vue.js: Getting Started                 | [/VuejsGettingStarted]            |  {2019/08/15}  |
 | Developing Faster with Vue CLI          | [/VueCLI]                         |  {2019/08/18}  |
+| Vue.js Fundamentals                     | [/VueFundamentals]                |  {}            |

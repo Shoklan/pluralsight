@@ -125,7 +125,6 @@ vue add @vue/pwa
 - [Jest](https://jestjs.io)
 - [Cypress.io](https://www.cypress.io)
 - [Nightswatch.js](https://nightwatchjs.org)
--
 
 
 # Research:

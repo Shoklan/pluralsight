@@ -90,6 +90,12 @@ vue create hello --preset ~/<path>
 
 
 # Running Unit and End to End Tests
+- How we're going to discussing building and running unit tests.
+- Out of the box, you get `npm run test:unit`
+- The format looks like this:
+![Vue Unit Item](images/vue-test-template.png)
+- You will also get the options to include **End-to-End** tests.
+- You can run those with `npm run test:e2e`.
 
 
 # Adding Packages and Plugins to Your Vue App with the Vue CLI
@@ -100,9 +106,16 @@ vue create hello --preset ~/<path>
 # Refernce:
 - [Vue Documentattion](https://vuejs.org)
 - [heroes-vue project](https://github.com/johnpapa/heroes-vue)
+- [Mocha Unit Tessting](https://mocahajs.org)
+- [Jest](https://jestjs.io)
+- [Cypress.io](https://www.cypress.io)
+- [Nightswatch.js](https://nightwatchjs.org)
+-
 
 
 # Research:
 - Mocha Tester?
 - Chai Tester?
 - Jest Tester?
+- cypress.io?
+- Nightwatch.js?

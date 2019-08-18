@@ -99,6 +99,17 @@ vue create hello --preset ~/<path>
 
 
 # Adding Packages and Plugins to Your Vue App with the Vue CLI
+- **Plugins** extend your Vue application by installing a dependency and optionally adding code or configuration to hook up your plugin to you app.
+- The way you add them is with the `vue add` command.
+- Two very popular ones are vue-router and vuex.
+- You don't have to include the `cli-plugin-` part to add them:
+```
+vue add @vue/cli-plugin-pwa
+vue add @vue/pwa
+```
+- You can find lots of plugins online at the main website.
+- You can use `vue invoke` to change how a plugin was configured.
+
 
 # Creating Vue Apps with Vue CLI's UI
 

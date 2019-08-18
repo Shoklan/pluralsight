@@ -112,6 +112,10 @@ vue add @vue/pwa
 
 
 # Creating Vue Apps with Vue CLI's UI
+- This module is a visual walkthrough of the Vue UI tool.
+- Doesn't translate well to text.
+
+
 
 
 # Refernce:

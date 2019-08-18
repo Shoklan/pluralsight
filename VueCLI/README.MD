@@ -56,12 +56,46 @@ vue create hello --preset ~/<path>
 ```
 
 
-# Building and SErving Vue
-- 
+# Building and Serving Vue
+- In this module, we're going to look at how to build and serve Vue applications.
+- By the end of this module, you should be able to tell the difference between apps, libraries and web components.
+- The heart and soul is the **Vue CLI service**.
+- It uses webpack for builds and serving along with biuld and invoking some bpm scripts to make the process consistent and easy.
+- Inside the vue.config.js file, it sets up a proxy route that tells it to use a different port when connecting to `/api`.
+![Route Proxy](images/proxy-backend-example.png)
+- Some useful arguments for `npx vue-cli-service` is:
+  * `--open`: open in a web browser.
+  * `--copy`: copy url to clipboard.
+  * `--host`: specify the host IP
+  * `--port`: specify the host port.
+- Normally, this process happens in memory but if we want it on the drive, then we'll use `build`.
+- This will change some defaults such as the mode to production.
+![Common Build Options](images/common-vue-build-options.png)
+- If you're going to be build lots of Web Components, etc then you should setup npm scripts for them.
+- When building a libray, you'll want to include a `index.js` where all the imports and export is for everything in your library.
+- It's also where you should expect people to check when they're trying to analyze the library.
+- You will need to include a `main` component with the path to the entry point into the library.
+```js
+"main": "./dist/<project-name>.common.js",
+"files": [
+  "dist/*",
+  "src/*",
+  "public/*",
+  "*.json",
+  "*.js"
+],
 
+```
+- With a web component, it will allow you to import the code as a script tag to add to your site.
 
 
 # Running Unit and End to End Tests
+
+
+# Adding Packages and Plugins to Your Vue App with the Vue CLI
+
+# Creating Vue Apps with Vue CLI's UI
+
 
 # Refernce:
 - [Vue Documentattion](https://vuejs.org)

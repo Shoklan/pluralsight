@@ -27,10 +27,11 @@ new Vue({
 ```
 - When you look at the App.vue file, it's clear a browser cannot read this.
 - There is a component of Vue that will read and compile it into a format they can use.
+- One of the rules is that Components should be at least two words.
 
 
 # Creating Vue.js Components and Using Template Syntax
-- 
+-
 
 
 

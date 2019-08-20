@@ -108,6 +108,40 @@ const images = require.context('./images', true, /\.png$/);
 - **Compents Lifecycle Hooks** are actions we can take based on the life cycle states of a component.
 - You can do this by using a function called `created(){}` and issuing code inside it for the component.
 
+# Enabling inter-component Communication
+- Now we're going to build different components in their own .vue files.
+- First you'll import it and then you'll declare it:
+```
+import availableParts from '../data/parts';
+const parts = availableParts.heads;
+```
+- When you import components, you'll also need to list them in the parent component.
+```
+components: [PartSelector],
+```
+- Then, you can tell the component what to look for with:
+```
+<partSelector :parts="availableParts.heads" />
+```
+- You can add types to ensure that what is passed is what is expected.
+- In addition, you can specify a validator.
+```js
+position: {
+    type: String,
+    required: true,
+    validator(value) {
+      return ['left', 'right', 'top', 'bottom', 'center'].includes(value)
+    },
+  },
+}
+```
+- We now need a way to tell our parent component that the robot parts have changed.
+- We do this by running an emit call: `this.$emit('partSelected', this.selectedPart)`.
+- Now in the parent component you'd bind to it with `v-on:="part => selectedRobot.head=part"`
+- But if you refresh the page and add the robot to the cart, then it wont work since no events have been emitted.
+- So, now we'll use the `created()` which will be called when the component is created.
+- Time to create a collapsible component.
+
 
 # Routing from Page to Page
 

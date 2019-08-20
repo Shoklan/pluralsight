@@ -148,8 +148,105 @@ position: {
 - We just need to install the Vue Routing Package.
 - You'll install it with `npm install vue-router --save`
 - We'll create a new router folder.
-- 
+- Then, we'll import vue-router: `import Router from 'vue-router';`
+- Then, you tell vue to use it.
+- Then, you build the routes:
+```js
+import Vue from 'vue';
+import Router from 'vue-router';
 
+import HomePage from '../home/HomePage.vue'
+import RobotBuilder from '../home/RobotBuilder.vue'
+
+Vue.use(Router);
+
+export default new Router({
+  routes: [{
+    path: '/',
+    name: 'Home',
+    component: HomePage
+  }, {
+    path: '/build',
+    name: 'Build',
+    component: RobotBuilder,
+  }],
+});
+
+```
+- Now we need to tell the app to use this new route based on the Vue.
+- We'll replace `<RobotBuilder/>` in App.vue with `<router-view/>`
+- There will be a #/ in the url and we'll address removing it later.
+- Now we'll discuss how to setup links to those other pages.
+- To setup a route, we'll use Vue's router link element.
+```
+<router-link to "/build"></router-link>
+```
+- You can also use a binding to the different router.
+```
+<router-link :to="{name: 'Home'}"></router-link>
+```
+- The class `.router-link-active` is a special class used by Vue.
+- This is applied to any links that match the current route.
+- You can ensure that it's an exact match by adding `exact` to the `router-link` tag.
+- You can also setup routes that accept passed on parameters.
+- You do this with:
+```
+methods: {
+  showPartInfo(){
+    this.$router.push0('/parts');
+  }
+}
+```
+- When you've update the route, it will look like this with variables: `path: '/parts/:partType/:id'`.
+- The route parts are on the components route:
+```
+const partType = this.$route.params.partType;
+return parts[partType].find(part => part.id === id)
+```
+- There is a problem with the above code since those will always be strings and we need the id to be an integer.
+- Also, we cannot pass those as strings in the `$router.push` and will need to use the object notation.
+```
+this.$router.push({
+  name: 'Parts',
+  params: {
+    id: this.selectedPart.id,
+    partType: this.selectedPart.type
+  },
+});
+```
+- You can enable props with routes by simply adding `props: true` in the route.
+- Then you'll add `props : ['partType', 'id']` to the index.js file.
+- So, there is a way to change the URL but only update content on the current page using **Nested Routes**.
+- You'll need to create the route and then add `children`
+- Then, you can use the name of the child route with `<router-link :to`.
+- Now let's discuss **Named Routes** which are multiple routes on a single component.
+- You'll specify this using `<router-view name="sidebar"/>`.
+- The reason that the url has the # in them is because **HTML5 History Mode** is not enabled.
+- To enable this, you just need to add `mode: 'history'` inside the Router.
+- There is a complication in that if someone bookmarks that page then you Web Server doesn't actually have a path for that.
+- So, you'll need to require your webserver to load the main page when anyone hits it.
+- We'll discuss this more when we cover pushing code into production.
+- **Navigation Guards** prevent a page from loading or prevent a user from leaving a page conditional on criteria.
+- You can add these on a component or a route.
+- Adding it to a route would look like this:
+```
+beforeEnter(to, from, next){
+  const isValidId = Number.isInteger(Number(to.params.id));
+  next(isValidId);
+}
+```
+- Now we'll want to prevent or warn a user to leave a page to prevent losing progress.
+- We are going to do this inside the component - but inside a route would work too.
+```
+beforeRouteLeave( to, from, next){
+  if this.addedToCart){
+    next( true );
+  } else {
+    const response = confirm('Progress will be lost!');
+    next( response );
+  }
+}
+```
 
 
 # Managing State and Server Communication with Vuex

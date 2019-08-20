@@ -144,6 +144,13 @@ position: {
 
 
 # Routing from Page to Page
+- Adding routing to an existing project is really quite easy.
+- We just need to install the Vue Routing Package.
+- You'll install it with `npm install vue-router --save`
+- We'll create a new router folder.
+- 
+
+
 
 # Managing State and Server Communication with Vuex
 

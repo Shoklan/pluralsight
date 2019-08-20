@@ -31,7 +31,56 @@ new Vue({
 
 
 # Creating Vue.js Components and Using Template Syntax
+- **Components** are really just Vue Instances.
+- When you look at one, it has this format:
+```
+const World = Vue.component(
+  'World',
+  { template: '<span>World</span>'},
+  );
+```
+- Inevitably, global variables cause problems because they are hard to locate.
+- It's also easy to run into naming conflicts.
+- All of the global components must be a Javascript String.
+- While they may encapsulate the variables, the CSS is left out.
+- Globals have no build time complitation support.
+- A Single-file Component is a file with a .vue extension.
+- There are typically three sections:
+  1. A template section.
+  2. A Script Section.
+  3. A Style section.
+- You *must* have a template and script section but can leave out the style section.
+- Make sure to include an export call inside the script section of the component.
+```
+<script>
+  export default {
+    name: 'RobotBuilder',
+  };
+</script>
+```
+- We're skipping over most of the CSS since it's not vue specific.
+- In order to provide data to our component, we need to update our components to have a data option.
+- This will be included in the Script subsection:
+```
+data() {
+  return {};
+}
+
+```
+- Webpacks has some magic at the top of the parts.js file that allows it to simply konw where those images are:
+```
+const images = require.context('./images', true, /\.png$/);
+```
+- You will use `v-bind:src="<data.heads[0].src>"` in the components now.
+- Now to let users change the parts, we'll need to discuss `v-on`.
+```
+<button v-on:click="selectNextHead()" ... >Turtles</button>
+```
+- There are shortened syntaxes for:
+  * `v-bind:` as `:`
+  * `v-on:` as `@`
 -
+
 
 
 

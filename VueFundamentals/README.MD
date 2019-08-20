@@ -79,9 +79,34 @@ const images = require.context('./images', true, /\.png$/);
 - There are shortened syntaxes for:
   * `v-bind:` as `:`
   * `v-on:` as `@`
--
-
-
+- We display raw data on the page with interpolation.
+- Vue has two directives to conditionally show elements on a page: `v-if` and `v-show`
+- `v-show` leaves the elements in the DOM while `v-if` actually removes them.
+- When building things likes carts, make sure to initialize defaults otherwise Vue wont detect the changes.
+![Cart Code example](images/cart-example.png)
+- Never use `v-if` and `v-for` on the same line.
+- Vue adds `v-data-<hash>` on elements to handle scope.
+- You add the attribute `scoped` to the `<scripts>` tag in the vue.
+- What Vue means when it says that styles are scoped is that it's not going to apply the style directly outside the scope.
+- Font color is inherited; borders are not.
+- Now, if you want to do this deep selection, you'd want to use the **Deep Selector**.
+```
+.content >>> .robot-name {
+  color: red;
+  border: 2px solid blue
+}
+```
+- This will affect the child components of your child components.
+- Valid JS does not allow hyphens so to add CSS with them you'd do this:
+```
+<div class="top part" style="{[background-color]: '3px solid red'}">
+```
+- It's better to use classes then inline styles.
+- Vue.js fully supports CSS Preprocessors.
+- You can install them via `npm install node-sass sass-loader --save-dev`
+- Then you just add it to the styles section as `<style lang="scss">`
+- **Compents Lifecycle Hooks** are actions we can take based on the life cycle states of a component.
+- You can do this by using a function called `created(){}` and issuing code inside it for the component.
 
 
 # Routing from Page to Page

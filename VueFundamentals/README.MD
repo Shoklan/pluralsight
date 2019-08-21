@@ -250,6 +250,71 @@ beforeRouteLeave( to, from, next){
 
 
 # Managing State and Server Communication with Vuex
+- At the heart of Vuex is the **Vuex Store** which provides an interface for storing and mutating data.
+- It's a shared data store to work with Vues data change detection.
+- At the core is the State Tree which contains all the data for your application.
+- By telling the store to commit a **Mutation**, it keeps everything in the store consistent.
+- For Async calls, you'd use **Actions** instead.
+- It can also contain logic along with the data for common calls using **Getters**,
+- You'll install it with `npm install vuex --save`
+```
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use( Vuex )
+
+#  ===[ Added to main.js ]===
+import store from './store';
+
+new Vue({
+  render: h => h(App),
+  router,
+  store,
+}).$mount('#app')
+```
+- Our store will need a state object which is where we will put all of our data.
+- All changes must be done via a Mutator.
+```js
+export default new Vuex.Store({
+  state: {
+    cart: [],
+  },
+  mutations: {
+    addRobotToCart(state, robot){
+      state.cart.push(robot);
+    },
+  }
+})
+```
+- Then with the store you use `this.$store.commit('addRobotToCart', Object.assign({}, robot, {cost}))`
+- Sometimes you'll want to access computer properties inside the Store.
+- To add these, you'll add a `getters` subsection in the store:
+```
+getters: {
+  cartSaleItems(state) {
+      return state.cart.filter( item => item.head.onSale )
+  }
+}
+```
+- You'll access it in the same way but you'll look at `$store.getters` instead.
+- While these synchronous calls are useful, most Web Servers now are using Asynchronous calls.
+- So, we're going to add `actions` to the Store now.
+```
+actions: {
+  getParts( context )
+}
+```
+- The `context` exposes several items for working with the state.
+- Examples include:
+  * state
+  * getters
+  * commit
+  * dispatch
+-
+
+
+
+
 
 # Creating Custom Directives and Filters
 

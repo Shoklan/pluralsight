@@ -301,7 +301,7 @@ getters: {
 - So, we're going to add `actions` to the Store now.
 ```
 actions: {
-  getParts( context )
+  getParts( {context} )
 }
 ```
 - The `context` exposes several items for working with the state.
@@ -310,9 +310,30 @@ actions: {
   * getters
   * commit
   * dispatch
+- Vue doesn't provide any of its own Data access methods so we're going to use **axios**.
+- We're going to install it with `npm install axios --save`.
+- The structure looks like `axois.get('<url>:<port>/<api-path>')`.
+- However, using a localhost to get this working will not work in production so we'll need to create a proxy.
+- That information will be contained in the file in the root of our project called `vue.config.js`.
+```
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api' : {
+        target: '<address>',
+        changeOrigin: true,
+      },
+    },
+  },
+};
+```
+![Proxy and API Example](images/api-proxy-request-example.png)
+- You use `dispatch()` to kick off actions:
+```js
+this.$store.dispatch('getParts');
+```
+- Now we're going to see how to save data to an API.
 -
-
-
 
 
 

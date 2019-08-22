@@ -333,8 +333,36 @@ module.exports = {
 this.$store.dispatch('getParts');
 ```
 - Now we're going to see how to save data to an API.
--
+- We start with a new action in the store.
+- `axios.post` returns a promise.
+- Now we'll look at how to build modules for the *Store* to break it up.
+- Create a Modules folder and put the index.js with the store in that directory.
+- Now after importing, you will change the store call to `this.$store.state.robots.cart;`.
+- In the future, Actions and Mutations should end up being the same but they're not now.
+- You might be wondering how Vue knows which module's Action call to use.
+- In actuality, it didn't know.
+- Vue however can be told to keep them separated if we tell it too.
+- So, we'll tag `namespace: true` in the .vues and they'll be separate now.
+- So, when calling the function with `.dispatch` you'll need to use the namespace: `'robots/addRobotToCart'`.
+- How you define getters is different with namespaces: `this.$store.getters['robots/cartSaleItems']`.
+- Any state that you add to non-namespaced modules is global.
+- There is a lot of boilerplate in the code right now and now lets resolve that.
+- Vuex providers a Mapped State Helper to assist with this.
+- You'll import it with `import { mapState } from 'vuex';`.
+- Then, you'll use it with `...mapStore({ rootFoo: 'foo'})`.
+- This syntax only works with namespace modules:
+```js
+...mapState('users', { usersFoo: 'foo' }),
+```
+![ Map State Example](images/namespace-maps.png)
+- Now we'll discuss **Map Actions** which are a little different.
+```js
+...mapActions('robots', ['getParts', 'addRobotToCart']),
+#....
 
+this.getParts() // don't need to call dispatch anymore.
+```
+- `mapMutations` is basically the same thing.
 
 
 # Creating Custom Directives and Filters

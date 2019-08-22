@@ -366,6 +366,67 @@ this.getParts() // don't need to call dispatch anymore.
 
 
 # Creating Custom Directives and Filters
+- Not we're going to discuss how to create our own Directives.
+- As an example, we're going to build a directive that when it is added will move it to the bottom left.
+- Create a file called pin-directive.js
+```js
+export default {
+  bind: (element) => {
+    element.style.position = 'absolute';
+    element.style.bottom = '5px';
+    element.style.right = '5px';
+  },
+};
+```
+- These come with `args` and `modifiers`.
+- To iterate over them:
+```js
+export default {
+  bind: (element, binding) => {
+    if ( binding.arg !== 'position') return;
+
+    Object.keys(binding.modifiers).forEach((key) => {
+      element.style[key] = '5px';
+    });
+    element.style.position = 'absolute';
+  },
+};
+
+```
+- Declare with: `v-pin:position.bottom.left`
+- The other way to pass values to custom directives is: `v-pin:"{ bottom: '10px', right: '5px'}"`.
+- However, this wont hotload until you refresh since the directive is not noticing the changes.
+- There is another Lifecycle hook that we'll bind to.
+```js
+update: (element, binding) => {
+  applyStyle(element, binding );
+},
+```
+- There are a few others:
+  * `inserted` when the element has been intserted into its parent node.
+  * `componentUpdated` where it fires only after all children elements have fired.
+  * `unbind` is called when the element us unbound from its parent component.
+- Since the `bind` and `update` are so common, there is a shortcut to use them both together.
+- You just leave all of it off and use `export default function (element, binding){ <function-to-do-stuff>}`.
+- This is scoped only to where we imported it but you can set it globally.
+- In the main.js file, you would include  `Vue.directive( 'pin', pinDirective );`
+- Now we'll discuss how to create custom filters.
+- A Filter is really just a function.
+- Create a file and the function must always accept at least one variable.
+```js
+
+export default function (amount){
+  return `$${amount.toFixed(2)}`;
+}
+```
+- Then you add the filter the default object after importing it.
+```js
+filters: {
+  currency: currencyFilter,
+},
+```
+- You can also declare it globally using `Vue.filter('currency', currencyFilter);`
+
 
 # Deploying Vue Applications to Production
 

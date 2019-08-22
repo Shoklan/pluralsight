@@ -429,6 +429,37 @@ filters: {
 
 
 # Deploying Vue Applications to Production
+- The basic Vue Build is a Zero config with reasonable defaults that can be modified whenever necessary.
+- What is included out of the box?:
+![Supported out of the Box in Vue](images/out-of-box.png)
+- Plan is to cover a basic Vue.js build with CLI.
+  * Using environment vars and build modes.
+  * Deploying to a production Web Server.
+  * Handling Deep Linking.
+  * Inspecting the built-in webpack config.
+  * Customizing the webpack config.
+- To tell it to build for production, use `npm run build`.
+- Those files will end up in the `dist` folder.
+- You can actually just copy it to a place where a webserver can serve it.
+- Anything we include in the folder `public` while building will end up in the final dist folder.
+- Sometimes you want different environments for different places.
+- We can do this with the mode flag.
+- By default when you run `build`, it is in production mode.
+- Setting this flag controls the `node_env` variable.
+- You can name and build different modes by creating a file called `.env.<env-name>`.
+- It will use any environmental variables we include in the file.
+- You can pass environmental variables to the app by putting them in that file and then calling `created() { process.env.VUE_APP_TEST};`
+- Vue will only display environmental variables that are prepended with `VUE_APP_`.
+- You can serve this by adding a line `app.use('/', express.static('dist', {index: 'index.html'}))`
+- Now we'll come back to deep linking in HTML5 History Mode.
+- Basically, you'll want to always forward to the index.html page on any unknown url requested.
+- Then, you'll ask the app to manage the route.
+- This is different for different web servers but this is common enough that Express has a builtin middleware.
+- You get it with `npm install connect-history-api-fallback`
+- We can check the configurations in modes using `vue inspect --mode=<mode>`.
+- Now only can you see it but you can add to it.
+- You add them to your vue.config.js file under `configureWebPack: {}`.
+
 
 # Reference:
 

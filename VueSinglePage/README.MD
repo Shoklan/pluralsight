@@ -155,8 +155,31 @@ npm install extract-text-webpack-plugin --save-dev
 
 
 # Routing
-- 
+- Vue has a plugin for this called *vue-routing*.
+- We install it with `npm install vue-router --save`
+- Then you will add a new file *router.js*
+```js
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
+Vue.use(VueRouter)
+
+const router = new VueRouter({
+  routes: [{
+    path: '/', component: Category
+  }]
+})
+
+export default router
+```
+- When loading a new page, we'd like to only load the components and not the full page.
+- You can tell it where to place the view itself when clicked by adding:
+```js
+scrollBehavior: (to, from, savedPosition) => ({y: 0})
+```
+- ... to the VueRouter.
+- Vue,js exposes the router via `this.$route.params.<param>`.
+-
 
 # API Communication
 

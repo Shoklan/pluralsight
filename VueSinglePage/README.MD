@@ -195,6 +195,49 @@ const NotFound = () => System.import('...')
 
 
 # API Communication
+- We're going to be using the library **Axois** for API Requests.
+- We will install it using `npm install axios --save`.
+- It is normal to have a service file: *app.service.js*.
+```js
+import axios from 'axios';
+
+axios.defaults.baseURL = '<url-here>'
+
+const appService = {
+  getPosts( categoryID){
+    axios.get('/some/path/${categoryID}/results')  //this is a promise
+    .then(response => {
+      resolve(response.data)
+    })
+  }
+}
+
+export default appService
+```
+- Vue sanitizes HTML before returning it but you can override this with the directive `v-html=`
+- You can ask a function to run when a use clicks something using the `v-on:click="f()"`.
+```js
+login(){
+  appService.login({ username: this.username, password: this.password})
+  .then((data) => {
+    window.localStorage.setItem('token', data.token)
+    window.localStorage.setItem('tokenExpiration', data.expiration)
+  })
+  .catch(() => window.alert('Could not login!'))
+}
+```
+```js
+axios.interceptors.request.use( function (config){
+  const token = window.localStorage.getItem('token')
+  if( token ){
+    config.headers. Authorization = 'Bearer ${token}'
+  }
+
+  return config
+})
+```
+-
+
 
 # State Management
 
@@ -207,6 +250,8 @@ const NotFound = () => System.import('...')
 # Reference:
 - [Project Github Page](https://github.com/bstavroulakis/vue-spa)
 - [EditorConfig](https://editorconfig.org)
+- [jwt.io](https://jtw.io)
 
 # Research:
 - Vue slot elements?
+- Interceptors?

@@ -118,10 +118,45 @@ npm install babel-core babel-eslint babel-loader babel-preset-es babel-preset-st
 - There are a lot of library choices for the Style Library but we're going to be using bulma.
 - You install it `npm install bulma --save`.
 - Now we'll include CSS in the style tag of the Layout.vue file.
+- We're going to use hard coded JSON objects in the data field of our .vue file.
+```js
+.columns {
+  flex-wrap: wra
+}
+```
+- We can create child components when the .vue file gets too large to manage.
+- You will just need to import them in the script section of the .Vue file that is serving as our main.
+- Remember to do that with: `import AppHeader` from `./AppHeader.vue`
+- And, to include them as components in the script section.
+- The **Props** attribute binds the data in our script subsection to the tags in our template subsection.
+- A **Slot** element allows you to reserve sections for content.
+-
+```html
+<!-- inside Post.vue -->
+<slot name="title"></slot>
 
+<!-- inside Post.vue -->
+<h3 slot='title'>{{ post.title }}</h3>
+```
+- We'll modify the cards so that they're the correct dimensions:
+```css
+.card{
+  padding-bottom: 40px;
+  height: 100%;
+}
+```
+- This change will then apply to the footer.
+- We can stop this by adding `scoped` to the style subsection.
+- The CSS is being included in the head of the file instead of separate like best practices.
+- We're going to install an extract plugin for Webpack:
+```
+npm install extract-text-webpack-plugin --save-dev
+```
 
 
 # Routing
+- 
+
 
 # API Communication
 
@@ -138,3 +173,4 @@ npm install babel-core babel-eslint babel-loader babel-preset-es babel-preset-st
 - [EditorConfig](https://editorconfig.org)
 
 # Research:
+- Vue slot elements?

@@ -236,10 +236,38 @@ axios.interceptors.request.use( function (config){
   return config
 })
 ```
--
 
 
 # State Management
+- The content we have built is already getting large enough to be a problem:
+![Heirarchy of Content](images/site-heirarchy.png)
+- What do you do when you don't want to share content only from parent to child?
+- We're going to create a file called *event-bus.js* that will trigger and handle events.
+- Every time the `isAuthenticted` changes, we'll emit and event: `eventBus.$emit('authStatus')`.
+- The reason we want to detach the state and logic is to prevent a web of complexity while updateing and communicating across components.
+- We have the library **Vuex** to assist with this in Vue.
+- You install it with `npm install vuex --save`.
+- The Store is just a way to centralize state:
+```js
+import Vue from 'vue';
+import Vuex from 'vuex';
+
+Vue.use(Vuex)
+
+const state = {
+  isAuthenticted: false
+}
+
+const store = new Vuex.Store( {
+  state
+})
+
+export default store
+```
+- The store is kept in the variable `$store`.
+- We really don't want to access the state directly.
+- ...
+
 
 # Server-side Rendering
 
@@ -255,3 +283,4 @@ axios.interceptors.request.use( function (config){
 # Research:
 - Vue slot elements?
 - Interceptors?
+- Redux.js?

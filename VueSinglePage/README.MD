@@ -179,7 +179,20 @@ scrollBehavior: (to, from, savedPosition) => ({y: 0})
 ```
 - ... to the VueRouter.
 - Vue,js exposes the router via `this.$route.params.<param>`.
--
+- You can associate routes with components as well as include parameters with the route:
+![ Configuring Routes with Components and Parameters](images/router-parameters.png)
+- `watch:` can be used on a route to update params internally when a user changes routes.
+- You can can access to GET request variables in the URL using: `this.$route.query.page`.
+- You can also add names to a route `name: 'category'`.
+- You can add a wildcard route to collect any paths that don't match: `path: '*', component: NotFound``
+- "If it is working, then you don't have enough features".
+- To only load a route when it is visited, we can use **Lazy Loading**:
+```js
+const Category = () => System.import('...')
+const Login = () => System.import('...')
+const NotFound = () => System.import('...')
+```
+
 
 # API Communication
 

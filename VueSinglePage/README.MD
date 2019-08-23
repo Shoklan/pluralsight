@@ -100,6 +100,26 @@ export { app };
 
 
 # Single File Components
+- You can declare a Vue Component with `Vue.component('app', template: <html goes here>)`
+- The `render` function returns an element of the app/component.
+- While you can do this, it is recommended that you have separate .vue files for each component.
+- This will contain the *template*, *script* and *style* sections.
+- Then, you import it in the app.js file.
+- By default, webpack doesn't know what loader to use for .vue files.
+- The community has written one that can be included in the *webpack.base.config.js*.
+- You will also have to install it `npm install vue-loader vue-template-compiler --save-dev`.
+- The **Spread Syntax** is `...`.
+- Now with `...AppLayout` will spread the properties of the declared Vue instance.
+- However, not all browsers can support this so we'll be installing **Babel** which converts it to compatible older JS format.
+- You will need to install them:
+```
+npm install babel-core babel-eslint babel-loader babel-preset-es babel-preset-stage --save-dev
+```
+- There are a lot of library choices for the Style Library but we're going to be using bulma.
+- You install it `npm install bulma --save`.
+- Now we'll include CSS in the style tag of the Layout.vue file.
+
+
 
 # Routing
 

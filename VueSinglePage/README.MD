@@ -280,8 +280,25 @@ export default store
 
 
 # Testing
+- Automated testing has become an integral part of testing.
+- Vue.js is not opinionated about which framework or method you use.
+- You can use **Karma** to open the program in configured browsers and test them for you.
+- You can use a headless browser called **Phantom.js** which more lightweight and fast.
+- Here are quite a few more:
+  * Mocha.
+  * Chai.
+  * Sinon.
+  * Jasmine
+  * Jest
+  * AVA.
+- We'll put out tests files in a folder named tests.
+- Don't forget to add the `webpack.test.config.js` file.
+![ Test Config File](images/test-config.png)
+
 
 # Deploying
+
+
 
 # Reference:
 - [Project Github Page](https://github.com/bstavroulakis/vue-spa)
@@ -293,4 +310,6 @@ export default store
 - Interceptors?
 - Redux.js?
 - Node.js MFS?
+- Karma?
+- Phantom.js?
 -

@@ -297,7 +297,27 @@ export default store
 
 
 # Deploying
-
+- Since we care about the client having to load large files, we can split our JS into a vender file that should not update often.
+- Many Hosts allow you the ability to link to your github repo and pull from there.
+- Really fast primer on git; not including.
+- You can sign up for Continuous Integration at [Travis-CI](travis-ci.org).
+- You then create a *travis.yml* file that it will read to setup the instance.
+- On each commit, Travis will run your tests for you.
+- It will even include an optionally output with badges that can be included in your README.
+- We're going to be using Azure as an example of launching the site.
+- In the portal after creating a free account, select **App Services**.
+- Select the **Add** button and select the Web App Template.
+- After naming the instance, go back to **App Services** and select the created app.
+- Once that is done, go ahead and tell it to use your Github repo to pull the code from.
+- Once that is done, you can click **Overview** to find the public link for the project.
+- While Azure was smart enough to figure out that we wanted to run Nodejs, it didn't know that we needed to run the build command.
+- You can fix this by creating a file called *.deployment* with the contents:
+```
+[config]
+command = build/deploy.cmd`
+```
+- Add this folder and script and copy the *web.config* file into the build folder.
+![ Azure Config CMD File](images/azure-launch-cmd.png).
 
 
 # Reference:
@@ -312,4 +332,3 @@ export default store
 - Node.js MFS?
 - Karma?
 - Phantom.js?
--

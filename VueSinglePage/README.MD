@@ -270,6 +270,14 @@ export default store
 
 
 # Server-side Rendering
+- Many bots wont wait for scripts to finish before parsing the contents of the page.
+- Sometimes this is ok; sometimes this is not ok.
+![ Client Vs Server Side](images/client-vs-server-side.png)
+- This first step is to create a file *server-entry.js*.
+- Don't forget to install `npm install webpack-not-externals`
+![ Server Config ](images/server-config.png)
+- The mismatch of the VDOM on the client and server will cause errors.
+
 
 # Testing
 
@@ -284,3 +292,5 @@ export default store
 - Vue slot elements?
 - Interceptors?
 - Redux.js?
+- Node.js MFS?
+-

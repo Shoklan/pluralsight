@@ -11,4 +11,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Vue.js: Getting Started                 | [/VuejsGettingStarted]            |  {2019/08/15}  |
 | Developing Faster with Vue CLI          | [/VueCLI]                         |  {2019/08/18}  |
 | Vue.js Fundamentals                     | [/VueFundamentals]                |  {2019/08/22}  |
-| Single Page Application with Vue.js     | [/VueSinglePage]                  |  { }           |
+| Single Page Application with Vue.js     | [/VueSinglePage]                  |  {2019/08/24}  |

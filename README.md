@@ -13,3 +13,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Vue.js Fundamentals                     | [/VueFundamentals]                |  {2019/08/22}  |
 | Single Page Application with Vue.js     | [/VueSinglePage]                  |  {2019/08/24}  |
 | D3.js Data Visualization Fundamentals   | [/D3JSFundamentals]               |  { }           |
+| Laying Foundations for Pentest+         | [/FoundationsPenTest]             |  { }           |

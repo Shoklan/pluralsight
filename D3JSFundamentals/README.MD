@@ -95,6 +95,49 @@ lolli
 
 
 # Shaping the Data
+- Data Visualization is an Iterative Process.
+- We'll be getting our data from [The Movie DB](https://themoviedb.org/).
+- We'll be using the module **D3-Fetch** to pull data into D3.
+- You should use the documentation to figure out what each API can do.
+- We will load the data using:
+ ```js
+ d3.csv('<path/to/data>.csv')
+  .then(res => {
+    console.log('Local csv:' res);
+  });
+```
+- You can assign the load calls and trigger all of them at once using:
+```js
+Promise.call([potter, rings]).then(res => {
+  console.log('Multiple requests :' res);
+  console.log('Multiple requests concat:', [...res[0], ...res[1]]);
+})
+```
+- The first task will be type conversion.
+- You can declare the types of the columns by passing a second defined function called `type` to `d3.csv()`.
+![Function to convert columns](images/type-convert-function.png)
+- After filtering it, we'll move to the visualizing.
+- You really should do the cleaning outside of JS.
+- We'll be using the function `d3.rollup( <data>, <reducer>, <key>)`.
+- The *key* is the variable we want to group our data by.
+- The *reducer* is a function that has access to the grouped array of subsets.
+- In our case, we're trying to total up the sales per genre so we'll need one of D3's statistics functions.
+- `d3.sum()` takes the subset along with an accessor key:
+```js
+function prepareBarChartData(data){
+  const rolledUp = d3.rollup(
+    data,
+    v => d3.sum(v, leaf => leaf.revenue),
+    d => d.genre
+  )}
+```
+- This will return a map and D3 doesn't really like maps so we'll want to convert it into an array again.
+- We do this with `dattaArray = Array.from(<target>, d => ({ genre: d[0], revenue: d[1]}));`
+- Don't forget to sort it:
+```js
+cosnt barChartData = prepareBarChartData(moviesClean).sort((a,b) => {return d3.descending(a.revenue - b-revenue);});
+```
+
 
 # Drawing a Bar Chart With Data
 
@@ -111,3 +154,5 @@ lolli
 # Research:
 
 # Reference:
+- [D3-Fetch Github](https://github.com/d3/d3-fetch/)
+- [Devdocs.io](https://devdocs.io)

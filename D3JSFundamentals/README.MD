@@ -140,6 +140,98 @@ cosnt barChartData = prepareBarChartData(moviesClean).sort((a,b) => {return d3.d
 
 
 # Drawing a Bar Chart With Data
+- Now we're going to actually start drawing data.
+- This is overall process that all of them are going to follow:
+  1. Transform the Data.
+  2. Chart Dimensions.
+  3. Scales.
+  4. Join and Draw.
+  5. Axis.
+  6. Refine
+- In order to create this, we'll use the D3 Margin Convention set by Mike Bostock.
+- We'll start by setting them all in a margins object:
+```js
+//margin convention:
+const margin = { top: 40, right: 40, bottom: 40, left: 40};
+const width = 400 - margin.left - margin.right;
+const height = 500 - margin.top - margin.bottom;
+
+//draw base
+d3.select('.bar-chart-container')
+  .append('svg')
+  .attr('width', width + margin.left + margin.right)
+  .attr('height', height + margin.top + margin.bottom)
+  .append('g')
+  .attr('transform', `translate(${margin.left}, ${margin.top})`);
+```
+- Scales map your data values to screenspace.
+- In D3 lexicon, the **Data Domain** is your input values and your output values are called the **Output Range**.
+- We will do this now:
+```js
+// use this to find the smallest,largest values:
+const xExtent = d3.extent(barChartData, d => d.revenue);
+
+
+const xScale = d3
+  .scaleLinear()
+  .domain(xExent)  // expects minimum and maximum values
+  .range([0,width])     // expects minimum and maximum values
+
+```
+- You should really always start visualizations at 0 and can find the max value using `d3.max()`.
+- You can use other scales as well - such as logarithmic.
+- There are also color scales as well.
+- We will definitely be using the **Band Scales** which map categorical values to pixel space.
+```js
+const yScale = d3
+  .scaleBand()
+  .domain(barChartData.map(d => d.genre))
+  .rangeRound([0, height])   //this is cleaner for Visualizations.
+```
+- D3 Data Joins looks at the data, figures out what the units are and binds the data values to the visual elements.
+- We can also update the data and D3 will diff the old and new data.
+- Only D3 selections give you access to the methods to join data to elements.
+```js
+svg
+  .selectAll('.bar')
+  .data(barChartData) // must be an array
+  .enter()            // happens to everything selected.
+  .append('rect')     // type of elements
+  .attr('class', 'bar')
+  .attr('y', d => yScale(d.genre))
+  .attr('width', d => xScale(d.revenue))
+  .attr('height', yScale.bandwith())
+  .style('fill', 'dodgerblue')
+
+  // scales offer a padding you can add - which will be done here
+  // yScale ... .paddingInner(0.25)
+```
+- Now we're going to build the axis.
+- To build one, you need to know two things: the Position and the Scale.
+```js
+const xAxis = d3.axisTop(xScale)
+const xAxisDraw = svg.append('g').attr('class', 'x axis')
+  .call( xAxis ) // D3 will pass this as the first argument and is prefered.
+```
+- You can use `d3-format` to help with controlling what values look like - including axis values.
+- Axis have a dedicated formatter called `.tickFormat()`.
+```js
+// Draw axis
+const xAxis = d3
+  .axisTop(xScale)
+  .tickFormat(d3.format('~s'))
+  .tickSizeInner(-height)
+  .tickSizeOuter(0)
+
+const xAxisDraw = svg
+  .append('g')
+  .attr('class', 'x axis')
+  .call(xAxis)
+```
+- You can also modify the values with an external style sheet.
+- Adding the Y axis is basically the same.
+- Working with text is SVG is not as simple as working with it in HTML.
+
 
 # Making a Scatter Plot and a Line Chart
 
@@ -156,3 +248,5 @@ cosnt barChartData = prepareBarChartData(moviesClean).sort((a,b) => {return d3.d
 # Reference:
 - [D3-Fetch Github](https://github.com/d3/d3-fetch/)
 - [Devdocs.io](https://devdocs.io)
+- [D3 Margin Convention](https://bl.ocks.org/mbostock/3079563)
+-

@@ -234,6 +234,12 @@ const xAxisDraw = svg
 
 
 # Making a Scatter Plot and a Line Chart
+- Time to move to a scatterplot.
+- The process is basically the same but we'll just be drawing with different functions.
+- The y direction has an annoying issue were the data => pixel values is inverted.
+- An **SVG Path Definition** is described by many points, by necessity.
+![SVG Path Definition](images/svg-path-definition.png)
+
 
 # Updating Your Bar Chart Data
 

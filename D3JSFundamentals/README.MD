@@ -242,6 +242,19 @@ const xAxisDraw = svg
 
 
 # Updating Your Bar Chart Data
+- There is a general update pattern which allows you to keep updated data in sync with your visual elements on screen.
+- There are three Data change states:
+  1. Enter state: new data rows.
+  2. Update state: remaining data rows.
+  3. Exit State: leaving data rows.
+- The main two services of data join are:
+  1. Compares existing data to what is or isn't inside the DOM.
+  2. Creates the three mentioned states.
+![Visual Example of the Three States](images/data-changes-states-.png)
+- When you work with HTML5 Canvas or WebGL, there is no DOM and it will be raw pixels.
+- 
+
+
 
 # Add Interactivity
 

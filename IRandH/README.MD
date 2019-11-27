@@ -81,6 +81,96 @@
 
 
 # Incident Response Process
+- A **Computer Security Incident** is an event or events that threaten the security of your networking infrastructure.
+![Assets](images/Assets.png)
+- Digital Assets are also an essential commodity to how the business functions.
+![Digital Assets](images/Digital-Assets.png)
+- While we wont dig into it here, Classification of assets is important.
+![Classification of Assets](images/Clafficiation-of-Asset..png)
+- The common symptoms are of an Incident are:
+  1. Weird Logs entries.
+  2. IDS Alarm.
+  3. Weird User Accounts.
+  4. Suspicious Files/Extensions.
+  5. Files/Folders modified.
+  6. Unknown Services/Ports.
+  7. System is "off"
+  8. Harddrives/Icons not accessible.
+  9. Massive Incoming Packets.
+- There are three basic functions of handling these events:
+  1. Reporting.
+  2. Analysis.
+  3. Response.
+- The goal of all this is to inspect, control and stop future attacks like it.
+- The Plan should include
+  1. How info is communicated.
+  2. Validation of the Incident.
+  3. Containment and responce tactic.
+  4. Restoration.
+  5. Documentation.
+  6. Preservation of Evidence.
+  7. Who is responding?
+  8. Roles and Duties of them.
+  9. How it will be handled.
+  10. Decision Making Process is also documented.
+- Questions you may need to ask:
+  * Do we involve the CSIRT Team?
+  * Legal Strategies?
+  * Support from Mangemenent?
+  * Good Remediation Plan?
+- **Information Warfare** is the conflict that makes use of information and information systems.
+- A Few kinds of Information Warfare:
+  1. Hijacking.
+  2. Jamming.
+  3. Disabling Networks.
+  4. Spoofing.
+- **Coinfidentiality** is prevention of unauthorized access.
+- **Integrity** is the ability to trust the information given.
+- **Availability** is the ability to access the resource.
+- A **Precursor** indicates the probability or possibility of an incident.
+- An **Indication** is signals or symptoms that lead you to think an incident occured.
+- When incidents happen, they are sorted into the following categories:
+  * **Low**:
+    * Misuse of Systems.
+    * Sharing Company Accounts.
+    * Failure to Apply updates.
+    * Not following AUP.
+    * Failed Scans of the network.
+    * Loss of Password.
+    * Compromise a system password.
+  * **Middle**:
+    * Unfriendly employee being fired.
+    * Access violation using a super user.
+    * Unofficial storing and processing of data.
+    * Damage of property related to computer incident.
+    * Personal Theft of Data.
+    * Malware outbreak.
+    * Prohibited Access to buildings.
+    * Breach of AUP.
+  * **High**:
+    * DoS Attacks.
+    * Suspected break-in.
+    * Presence of harmful programs.
+    * Unauthorized changes to system.
+    * Damage of Property exceeding $100K
+    * Personal theft exceeding $100K.
+    * Any kind of pornography, gambling, violation of law.
+- Do not prioritize things as you get them; triage based on the category.
+- Once it happens, you'll want to:
+  1. Step by step responses.
+  2. Recovery ASAP
+  3. What lessons were learned?
+  4. Prepare for Legal issues.
+- **Incident Handling** refers to a set of procedures and policies used to prepare for, detect and overcome security incident for your organization.
+- Report everything.
+- The most well known and popular team is **Computer Emergency Response Team (CERT)**.
+- Another is the **Computer Security Incident Response Team (CSIRT)**.
+- Another is the **Forum for Incident Response and Security Teams (FIRST)**.
+- Another is the **Security Emergency Response Team (SERT)**
+- Another is the **Security Incident Response Team (SIRT)**
+- Another is the **Information Analysis Infrastructure Protection (IAIP)**.
+- ... and lots more.
+
 
 # The Workflow of Incident Response
 

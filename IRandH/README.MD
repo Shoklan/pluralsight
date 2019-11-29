@@ -173,6 +173,76 @@
 
 
 # The Workflow of Incident Response
+- The first steps is the Identification Step.
+- Make sure to note the event properly.
+- Type steps are:
+  1. Able to validate.
+  2. Identity the nature of the incident.
+  3. ID and protect the evidence.
+  4. Create reports.
+- We can identify incidents using:
+  * Anti-virus/IDS/Firewall Alert.
+  * Unsuccessful login attempts.
+  * Unexpected deletion or corruption of data.
+  * System Crashes.
+  * Audit logs.
+- There are actions that you will need to follow through with:
+  1. Analyze Audit logs.
+  2. Start the Incident Reporting Process.
+  3. Collecting and protecting the system information.
+  4. Incident Severity Category Identification.
+  5. Gather Other System logs analysis.
+  6. Assign a Task Force Member.
+- Next is the **Incident Recording** which is recording the incident someplace safe and accurate.
+![Incident Reporting Requirements](images/incident-reporting.png)
+- Make sure you know what immediately happens when you start responding to a potential incident.
+- The next step is **Communicating** that the incident took place.
+- After which, you will want to move to **Containment**.
+- If this is due to a service, disable it!
+- If this is due to an unknown attack vector, remove the host from the network!
+- If it was an account, then disable the account or change the password.
+- Make sure to have a backup of the infected system.
+- Or, just shut it down if there are no other choices.
+- Move to restore the system to its old state.
+- If you know it is on-going then try not to inform the attacker so you can reverse it backwards to follow them to the breach.
+- What factors  could affect our decisions?:
+- In order to respond properly to each incident, we need to know which category they fall in.
+- The **Incident Investigation** stage is a large part of the overall process.
+- It should help us determine a couple of things:
+  * Who, What, When, Where, How?
+  * Examine the evidence; gather it here.
+- **Data Collection** getting all the facts for forensic analysis.
+- There are three locations:
+  * Host.
+  * Network.
+  * Other devices, sources; example is people.
+- **Forensic Analysis** is the step where you actually process the information you've collected.
+- Make sure to collect Asset IDs, Serial Numbers, arrival and departure times, etc.
+- We should try and get the list of Victims and Attackers.
+- Remember that the purpose of this step is to build a case against the attacker.
+- The next step is **Evidence Protection** which is about ensuring the integrity of data collected.
+- This is imperative to meet any legal compliance issues.
+- **Always make sure to backup your data.**
+- The first question is who backed up the system?
+- Next is who has access to the backups?
+- When was the backup done?
+- How is the backup secured?
+- If there is enough evidence, then we may need to reach out to External Agencies.
+- After that, is the **Eradication** stage.
+- Now you should terminate the malware on the systems.
+- Goals:
+  * Determine the Cause and Symptoms.
+  * What can we do to improve?
+  * Vulnerability Analysis.
+![Restore Choices](images/restore-steps.png)
+- **Docuemntation** for everything!
+- Try to write the reports for somethign approximating a laymen; non-techs will need to be able to read them.
+![Docuemtation Highlights](images/documentation-points.png)
+- At end, it's *all about the Bnenjamins*.
+- Examining the damage and estimating the cost to and lost from the incident is called **Incident Damage and Cost Assessment**.
+- A couple points of interest:
+![Cost Highlights](images/cost-highlights.png)
+
 
 # Networks and Host Attacks
 

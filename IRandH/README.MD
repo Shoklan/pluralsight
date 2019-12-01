@@ -273,7 +273,47 @@
   9. Restrict protocol bandwith usage.
   10. Redundancy.
   11. Check current capacities.
-
+- Here are some best practices:
+![Best Practices for Managing DoS](images/DoS-Best-Practices.png)
+- Now we're going to approach How to handle Unauthorized Access.
+- This can be done using a few methods:
+![Unauthorized Access Methods](images/unauthorized-access-methods.png)
+- There an alternative stream for files in windows that you can store stuff in.
+```
+echo "Alternative-Text" > filename.txt:turtles.txt
+```
+- Here are a few signs of Compromise:
+![Signs of Compromise](images/root-compromise-signs.png)
+![Signs of Compromise, Part 2](images/root-compromise-signs-2.png)
+![Signs of Compromise, Part 3](images/root-compromise-signs-3.png)
+- We can do a few things about these:
+  1. Set alerts on IDS/IDP systems.
+  2. Have a centralized Log Servers.
+  3. Good Password Policies.
+- Now lets look at trying to prevent this.
+  * Secure all remote access methods.
+  * More publicly available services in a DMZ
+  * No public IP within the internal network.
+- What can we do about hosts?;
+  * Check for vulnerabilities.
+  * Disable unused services.
+  * Run services with the least privileges on services.
+  * Host-based Firewalls
+  * Lock on idle and logoff policies.
+- Authentication/Authorized Best Practices:
+![Prevention Best Practices](images/authentication-authorization-practices.png)
+- We can respond to these by:
+  * Isolating the system.
+  * Disable Affected services.
+  * Eradicate Entry Route.
+  * Deactivate the User Account.
+  * Look at Enhancing Current Security.
+- Lets now talk about Inappropriate Usage.
+![Detecting Inappropriate Usage](images/detect-innappropriate-incident.png)
+- What you want to do once this happens:
+![Manage inappropriate Usage](images/inappropriate-usage-action.png)
+- Prevention:
+![Prevent Inappropriate Usage](images/prevent-inappropriate-actions.png)
 
 
 # Service and Application Attacks

@@ -245,6 +245,36 @@
 
 
 # Networks and Host Attacks
+- A little review before discussing how to handle DoS attacks:
+![Modern Botnet Structure](images/botnet-architecture.png).
+- Detecting a DoS attack is pretty easy since the purpose is to affect systems.
+- Now to show the plan:
+  1. Contact the ISP to inform them.
+  2. Contact CERT or IC3 next.
+  3. Update/Deploy IDS.
+  4. Start Monitoring bandwith.
+  5. Check latency between cites.
+  6. Involve Infrastructure Admins.
+  7. Update Documentation.
+- There is no guaranteed way to respond to this kind of attack but there are some guidelines.
+  1. If you can absorb it, then sometimes you can.
+  2. You can move to stop non-critical services.
+  3. Shut the host down.
+- You can try and prevent DoS with:
+  1. Block Traffic.
+  2. Filter/Restrict ICMP traffic.
+  3. Maybe Block outgoing IRC/IM ports.
+    * These are used quite a bit for zombie communication.
+  4. Block non-critical services.
+  5. Close Ports.
+  6. Deny traffic from unassigned IPs.
+  7. Use the ACLs on the routers.
+  8. Don't allow direct broadcasts.
+  9. Restrict protocol bandwith usage.
+  10. Redundancy.
+  11. Check current capacities.
+
+
 
 # Service and Application Attacks
 

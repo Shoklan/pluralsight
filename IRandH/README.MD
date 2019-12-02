@@ -317,10 +317,103 @@ echo "Alternative-Text" > filename.txt:turtles.txt
 
 
 # Service and Application Attacks
+- Monitoring your services is one the best behaviors for your overall operations.
+- We want to see what is running as well as how well it's running.
+- You should have a reasonable understanding of baseline for services.
+- For protection, you'll also want to have:
+  * Anti-Virus/Anti-malware.
+  * File Integrity Tools.
+  * Whitelisting Tools.
+- You can show the list of Windows Services running via Powershell using
+```
+Get-Service
+```
+- You can start a service using:
+```
+Start-Service <service-name>
+```
+- You can also specify a remote host with the argument `-ComputerName`.
+- You can stop a service using `Stop-Service <service-name>`.
+- Linux is dependent on the Distro but `service` is common.
+- When analyzing Appications, you'll want to:
+  * Document what is normal.
+  * Logging.
+  * Heuristic Analysis.
+![What to Look for: Apps](images/application-look-for.png)
+![What to Look for, Part 2: Apps](images/application-look-for-2.png)
+- **Session Hijacking** is the ability to take over someones session without them knowing.
+- The most common way to do this would be to sniff and replay the Session ID to the server.
+- You can see who is logged in using `query user`.
+- Example of a Terminal Hijack in Winsdows:
+```
+sc create hijackthis binpath= "cmd.exe /k tscon 3 /dest:rdp-tcp#8"
+
+```
+- Symptoms of a Session Hijacking:
+![Symptoms of Session Hijacking](images/hijack-symptoms.png)
+- You can check the ARP table in windows using `arp -a`.
+- You can list the dns info in Windows using `ipconfig /displaydns`.
+- You can hard code your ARP Tables on boot to protect against poisoning.
+![Defend Against Hijack](images/defend-against-hijack.png)
+- If it happens:
+  1. Relax.
+  2. Drop specious sessions.
+  3. Check Destinations.
+  4. Change Password.
+  5. When in doubt: Rebuild.
+- Command Injection is when an attack inserts a command unintended to extract or exploit a server.
+- The most common is still SQL Injection - and is quite common.
+![Drop Tables Example](images/drop-tables.png)
+- Javascript wont protect you from these attacks since they can be submitted around it.
+- You have some choices about how to defend against these:
+  * Limit the query account's permissions.
+  * Parameterized Stored Procedures.
+  * Server Side Filtering.
+  * ModSecurity
+  * Substitutes
+- When it happens:
+  * Find the command issued in the logs.
+  * DLPTools?
+  * Block the IPs where they come from.
+  * Eliminate and Recover.
+- Now we'll talk about an XSS attack.
+![XSS Attach Diagram](images/xss-visible-diagram.png)
+- An Attacker is usually after information from a User's Browser session.
+- There are a few kinds of XSS attacks:
+![Types of XSS](images/types-xss-attack.png)
+- To defend against these make sure to:
+  1. Remove scripting characters from input.
+  2. Use NoScript.
+  3. Use a modern browswer.
+- When it happens:
+  1. Relax.
+  2. Identification
+  3. Containment.
+  4. Eradication.
+  5. Recover.
+- Now we're going to discuss **Buffer Overflow**.
+- Developers assume that user input is safe.
+- The idea is to insert input into RAM that is larger than the allocated amount of space for it in RAM.
+- There are tools to assist with this:
+![Buffer Overflow Tools](images/overflow-tools.png)
+- Defense against Buffer Overflows:
+![Defend Against Buffer Overflow](images/defend-against-buffer.png)
+- When it happens:
+  1. Take the system offline.
+  2. Path and update the system.
+
 
 # Malicious Code and Insider Threats
 
 # Research:
 - The 4th Amendement to the US Patriot Act?
+- Dynamic Arp with DHCP Snooping?
+- sqlmap?
+- Havij?
+- ModSecurity?
+- DLPTools?
+- Jikto?
+-
 
 # Reference:
+- [Koders](Koders.com)

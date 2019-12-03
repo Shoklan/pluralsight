@@ -404,6 +404,96 @@ sc create hijackthis binpath= "cmd.exe /k tscon 3 /dest:rdp-tcp#8"
 
 
 # Malicious Code and Insider Threats
+- Malicious computer code - such as Virus and Worms - have the ability to destroy businesses.
+- A **Virus** comes along with a file and replicates via the sharing of the file.
+- A **Worm** is a self replicating malware which inserts itself into RAM.
+- A **Trojan** are malicious programs that are disguised to look like a harmless program which creates a backdoor.
+- **Spyware** is software that pretends to be useful but actually reports what is happening on the computer to a remote source.
+- When one ends up on your system, make sure that your company has a **Malicious Code Security Policy**.
+- Install Anti-Software - anti-malware, anti-spyware, etc.
+- Check download files and attachments for malicious software.
+- Beware of removable media.
+- User Training!
+- Pay attention to online security news sites.
+- IDS, again.
+- Create a convenient workflow for users to report such potential events.
+- Signs that you've been affected:
+  1. Alerts from Anti-Software.
+  2. Increase in emails.
+  3. Files Deleted/Corrupted.
+  4. System is unstable.
+  5. Software runs at all; if at all.
+  6. Pop-ups.
+- You contain code by:
+  1. Recognition.
+  2. Register with Antivirus vendors.
+  3. Configure Email Servers/Clients to block them.
+  4. Block the infected host.
+  5. Maybe down the email servers?
+  6. Isolate the internal network.
+  7. Get Users Onboard.
+  8. Disable Services.
+  9. Disable Connections.
+- Now we need to gather evidence.
+- Botnets are a grouping of bots.
+- A **Bot** is just a piece of software that performs some action on behalf of the attacker.
+- A **Bot Herder** is the individual who controls the botnet.
+- Many advertisements end up containing this kind of malware.
+- It is common to see the communication over IRC TCP 6667.
+- This allows the bot herder to talk with many bots.
+- They will sometimes use Social Media Networks as well.
+- They will also use a command payload inside a DNS packet.
+- **Fast Flux**:
+![Round Robin Attack](images/fast-flux-attack.png)
+- **Rootkits** depend on the attackers having root access.
+- They are a collection of tools which alter the OS to hide from and backdoor it.
+- Even Linux can be affected.
+- They replace/redirect away from the real tools.
+- They can also modify syslogd even.
+- Attacks use DLL injection to attach to processes that don't normally use them.
+- Anyone with Debug privileged in Windows can do this.
+- Most rootkits, especially older ones, are in User-Mode.
+- If it happens:
+  1. Relax.
+  2. Patch! Update!
+  3. Anti-software.
+  4. Harden the system.
+  5. Check out CIS.
+  6. Watch for changes in critical System files.
+- You can try and prevent them using:
+![Anti-Rootkit Tools](images/tools-against-rootkits.png)
+- The **Insider Workflow**:
+![Insider Threat](images/inside-attacker-workflow.png)
+- Detection is the same set of sources: logs, alerts, etc.
+- Response:
+![Inside Threat Response](images/insider-threat-response.png)
+- To prevent this from a Networking Perspective:
+  1. Firewalls.
+  2. Rules.
+  3. No Filesharing.
+  4. Strict Password Policy.
+  5. Account management procedures.
+  6. Strict admin safeguards on critical servers.
+- To prevent this from an Access Control Perspective:
+  1. Manage Access Privileges.
+  2. Change Controls.
+  3. Termination Policies.
+  4. Separation of Duties.
+- To prevent this from a Security Awareness Program Perspective:
+  1. Report Behavior.
+  2. Be consistent.
+  3. Notify Employees.
+![Admins and Privileged Users](images/admins-privileged-users.png)
+- Backups should be:
+  * Secure backup process.
+  * Test the backup!
+  * Secure the backup medium.
+  * Don't forget Separation of Duties.
+-
+
+
+
+
 
 # Research:
 - The 4th Amendement to the US Patriot Act?

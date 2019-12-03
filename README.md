@@ -14,4 +14,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Single Page Application with Vue.js     | [/VueSinglePage]                  |  {2019/08/24}  |
 | D3.js Data Visualization Fundamentals   | [/D3JSFundamentals]               |  { }           |
 | Laying Foundations for Pentest+         | [/FoundationsPenTest]             |  {2019/10/02}  |
-| Performing Incident Response & Handling | [/IRandH]                         |  { }           |
+| Performing Incident Response & Handling | [/IRandH]                         |  {2019/12/03}  |

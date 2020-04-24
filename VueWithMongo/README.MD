@@ -7,6 +7,12 @@
 
 
 # Technology Stack Overview
+- If you're looking to be a full stack JS developer and looking for a tech stack then welcome.
+- This course will introduce you to the **Venom Stack** for Application Development.
+![Venom Stack](images/venom-stack.png)
+- We're going to be working on a minimally viable application for a client.
+- We're building a basic banking interface.
+
 
 # Setting Up the Demo Applications
 

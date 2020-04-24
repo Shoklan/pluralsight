@@ -2,6 +2,9 @@
 ## Mark Scott
 
 # Get Introduction to the Course
+- Vue.js is growing in the Application world.
+- We're going to go over how to build an application with Vue.js and MongoDB.
+
 
 # Technology Stack Overview
 

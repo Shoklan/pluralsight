@@ -12,9 +12,6 @@
 ![Venom Stack](images/venom-stack.png)
 - We're going to be working on a minimally viable application for a client.
 - We're building a basic banking interface.
-
-
-# Setting Up the Demo Applications
 - We're start with an Architectural Approach to the project.
 - The parts are:
   1. UI Layer.
@@ -45,7 +42,33 @@
 - We could develop our MongoDB database via the Comamnd line but we're going to use a different tool instead called Studio 3T.
 - The Free version would be Robo 3T instead.
 
+
+# Setting Up the Demo Applications
+- Now we'll be builing and installing everything.
+- Install nodejs
+- We'll also need to install yarn from [yarn's website](yarnpkg.com)
+```bash
+install -g vue-cli
+```
+- Then we'll create the project in the correct directory:
+```bash
+vue init webpack client
+# vue initialize <template> <project-name>
+```
+- This will give you a few fields to fill out.
+- Then you change to the correct directory; the start with:
+```bash
+npm run dev
+```
+- Normally, you will have a different server for the API and the database:
+![Baseline Architecture](images/base-arch.png)
+- We're going to use separate folders to simulate this.
+- After getting the project folder loaded, we'll start working in main.js
+
+
 # Designing the Data Layer with MongoDB and Mongoose
+-
+
 
 # Developing the API with Node and Express
 

@@ -48,7 +48,7 @@
 - Install nodejs
 - We'll also need to install yarn from [yarn's website](yarnpkg.com)
 ```bash
-install -g vue-cli
+npm install -g vue-cli
 ```
 - Then we'll create the project in the correct directory:
 ```bash
@@ -67,7 +67,54 @@ npm run dev
 
 
 # Designing the Data Layer with MongoDB and Mongoose
--
+- We should ask ourselves whether the data or the design matters more to the users.
+- In our case, we'll work on the Data layer first.
+- Once you're ready, navigate to [Install MondoDB](docs.mongodb.com/manual/installation/) to install MongoDB for your OS.
+- Download and install Robo 3T and create collections **users** and **transactions**.
+- **"Everything in Mongoose starts with a schema"**.
+- Here is the schema we'll be using:
+![Schema Example](images/schema-example.png)
+- Here are the Mongoose Schema Types:
+![Mongoose Schema Types](images/mongoose-schema-types.png)
+- Calling `npm init -f` will force it to use the default settings and not ask for anything.
+- We'll want auto-reload on changes and *nodemon* is a popular choice.
+- You can install it using `npm install nodemon -g`.
+- Now we'll define our models in the `models` folder in our **server** folder project.
+```js
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+let userSchema = new Schema({
+  first: { type: String, required: true },
+  last:  { type: String, required: true },
+  email: { type: String, required: true },
+  password: { type: String, required: true },
+  isActive: { type: Bool, default: true },
+  createdOn: { type: Date, default: Date.now }
+})
+
+const User = mongoose.model('User', userSchema)
+modeule.exports = User
+```
+- We're doing the same thing for transactions:
+```js
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+
+let transactionSchema = new Schema({
+  userId: mongoose.SchemaTypes.ObjectId,
+  transactionDate:  { type: Date, required: true },
+  transactionType:  { type: String, required: true },
+  description: { type: String, required: true },
+  charge:  { type: Number, default: 0 },
+  deposit: { type: Number, default: 0 },
+  notes:   { type: String, default: '' },
+  createdOn:   { type: Data, default: Date.now },
+})
+
+const Transaction = mongoose.model('Transaction', transactionSchema)
+modeule.exports = Transaction
+```
 
 
 # Developing the API with Node and Express

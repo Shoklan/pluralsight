@@ -118,6 +118,36 @@ modeule.exports = Transaction
 
 
 # Developing the API with Node and Express
+- Looking over the connections to each model:
+![User Endpoints We Will Need](images/user-enpoints.png)
+![Transaction Endpoints We Will Need](images/transaction-enpoints.png)
+- We'll be setting up routes for each model.
+- We'll want to modify the package.json scripts file so that "scripts" contains:
+```js
+"scripts": {
+    "start": "npm run lint & nodemon app.js",
+    "lint": "./node_modules/.bin/eslint **/*.js"
+}
+```
+- The file app.js is where the application starts.
+```js
+const express = require('express')
+const app = express()
+```
+- I am just going to write notes and hopefully upload the code later.
+- This is what the current folder structures should look like:
+![Folder Structure with Routes](images/routes-folder.png)
+- You can add a package to the project using `yarn add <package>` - if you have yarn installed.
+- You can tell it which port to use using `app.set('port', (process.env.PORT || 8081))` in the app.js file.
+![User Endpoint Code](images/user-endpoint-code.png)
+- Use the mongoose function `.save()` to save values to mongodb:
+![Using Mongoose to Save](images/user-route-save.png)
+- Transactions can be passed as a pipeline of queries using the `.aggregate(pipeline)` function in mongoose.
+![Transaction Pipeline](images/transaction-pipeline-example.png)
+- You can bundle routes in the index.js file:
+![Bundle Routes Created](images/bundled-routes.png)
+- You can also start the server using `yarn run start`.
+
 
 # UI Development with Vue.js and Vuetify
 

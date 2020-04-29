@@ -150,6 +150,28 @@ const app = express()
 
 
 # UI Development with Vue.js and Vuetify
+- We're now going to finally start using Vue.js for the core parts of the application.
+- Here are the core features of the Application:
+![Vues Needed](images/vues-ui-needed.png)
+- Reminders for what we're planning for the project:
+![Project Reminders](images/project-reminders.png)
+- Components:
+  * Home.vue
+  * Transactions.vue
+  * EditTransactions.vue
+  * Login.vue
+  * About.vue
+- Once you're done modifying files, then you can run `npm run build` or `yarn run build` to compile it.
+- When building, you can automatically fix many linting problems using `yarn run lint --fix`.
+- Now to work on getting the website to look clean.
+- If at all possible, use the Veutify pre-builts to save yourself time.
+- We'll want to install it using `yarn add veutify` or `npm install vuetify`
+- Don't forget to modify and import in App.vue and to also build again once this is all changed.
+- Needed components for our project:
+![Needed components](images/needed-compontents.png)
+![Email and Password Functions](images/email-password-functions.png)
+- Add the Vue.js Dev Tools for your browser.
+
 
 # Manage Application State with Vuex
 
@@ -161,5 +183,6 @@ const app = express()
 
 # Research:
 - [Material Design Website?](materials.io)
+- GitLens Extention in VSCode?
 
 # Reference:

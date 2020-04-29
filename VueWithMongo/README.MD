@@ -174,6 +174,32 @@ const app = express()
 
 
 # Manage Application State with Vuex
+- A Script block contains a number of options:
+![Options](images/script-block-options.png)
+- We're going to dig into a package for Global State management called Vuex.
+- Vuex Workflow:
+![Vuex Workflow](images/vuex-workflow.png)
+- The **State** is the single source of truth across the entire application.
+- Simple Example:
+```js
+const store = new Vuex.Store({
+  state:{
+    user: null,
+    isAuthorized: false,
+    roles: []
+  }
+})
+```
+- Think of **Actions** as the gateway into your store.
+- It is possible for an *action* to call another *action*: **Action Chaining**.
+- **Mutations** are where we actually change the state of the application.
+![Example Mutation Code](images/mutation-example.png)
+- There are times when you may need to create values from saved state.
+- This is where **Getters** can come in handy.
+- You don't have to use modules in Vuex and can simply keep one big state.
+- However, these can get too big to manage and you can split them up:
+![Vuex Modules Tree](images/vuex-modules.png)
+
 
 # Getting Data from the API
 

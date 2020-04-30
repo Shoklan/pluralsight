@@ -202,6 +202,12 @@ const store = new Vuex.Store({
 
 
 # Getting Data from the API
+- We'll be using **Axios** to communicate with out APIs.
+![ Example API call ](images/axois-example.png)
+![Real API Call](images/real-api-call.png)
+- Remember that you will get a **Cross-Origin Resource Sharing** when services are running on different ports.
+- We can fix this by installing and setting up cors.
+
 
 # Finalizing the Demo Application
 

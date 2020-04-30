@@ -215,6 +215,11 @@ const store = new Vuex.Store({
 
 
 # Summary:
+- You don't have to use Veutify and can in fact use Bootstrap too.
+- You can use Firebase instead of MongoDB if you'd like.
+- Tailor your tech stack to your needs.
+- If you're using a relational database then consider Sequelize.
+
 
 # Research:
 - [Material Design Website?](materials.io)

@@ -210,6 +210,9 @@ const store = new Vuex.Store({
 
 
 # Finalizing the Demo Application
+- We're still missing the writes which we'll work on now.
+- We're going to use bcrypt.js for encrypting user passwords.
+
 
 # Summary:
 

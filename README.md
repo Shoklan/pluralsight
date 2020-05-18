@@ -16,3 +16,5 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Laying Foundations for Pentest+         | [/FoundationsPenTest]             |  {2019/10/02}  |
 | Performing Incident Response & Handling | [/IRandH]                         |  {2019/12/03}  |
 | Building Apps with Vue.js and MongoDB   | [/VueWithMongo]                   |  {2020/04/30}  |
+| Maya Fundamentals:Overview and Modeling | [/MayaOverviewModeling]           |  {}            |
+| Secure Software Development             | [/]                               |                |

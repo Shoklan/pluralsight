@@ -75,7 +75,7 @@ def setUp(self):
   * A **Regression** is when something used to work but no longer does.
   * The idea being that a unit test should tell you which test failed and why.
   * And, it will also show you which parts are connected together:
-![Example of Code Change creating multiple test failures](images\coupled-failures.png)
+![Example of Code Change creating multiple test failures](images/coupled-failures.png)
 - Unit Testing cannot test correctness.
 - They're not very good an testing non-functional requirements and security.
 - There are three places for tests:
@@ -98,7 +98,7 @@ def setUp(self):
 - To understand what you need to build, you will certainly need to collaborate.
 - When writing the code, may companies use a **Continuous Integration Server**.
 - It will watch for changes to the code, pull them, run the tests and alert if there are errors.
-- This will only matter if the team takes is seriously.
+- This will only matter if the team takes it seriously.
 - It might also check for code coverage.
 
 
@@ -160,7 +160,7 @@ def phonebook(tmpdir):
   phonebook = Phonebook(tmpdir)
   return phonebook
 ```
-- You can see all the fixtures being added by appending `--fixtures` to you call to python.
+- You can see all the fixtures being added by appending `--fixtures` to your call to python.
 - You really should keep the test in memory and not put them on the file system though.
 - *Pytest* will still run *unittest* tests if it finds them in the directory.
 - They don't deal well with each other's fixtures though so be wary.
@@ -174,10 +174,10 @@ def phonebook(tmpdir):
   2. Regression Testing.
   3. Tutorial Documentation.
 - It's good practice to include **Docstrings** to document how to use your functions.
-[Example Docstring](images/example-docstring.png)
+![Example Docstring](images/example-docstring.png)
 - Those, however, end up out of date much of the time - which is where *doctest* comes in.
 - The tests are included in the docstring and will be pulled from there.\
-[Example of a Decent Docstring With Code](images/filled-docstring.png)
+![Example of a Decent Docstring With Code](images/filled-docstring.png)
 - You run it using `python -m doctest <file>`; output is only displayed on errors.
 - If you want to see all the tests and the outputs then pass `-v`.
 - If you want *pytest* to find *doctest* then you need to pass `--doctest-modules` to *pytest*.
@@ -206,7 +206,7 @@ def load_tests(loader, tests, ignore):
 - Sometimes we care more about the regression part than the doctest part.
 - And, you can put your examples in a textfile to share and run on other systems.
 - You can request that *doctest* run a text file full of the tests using `python -m doctest <filename>`.
-- Make sure to import the python dependencies at the top of the file will the prerequisite `>>>`.
+- Make sure to import the python dependencies at the top of the file with the prerequisite `>>>`.
 - **Approval Testing Cycle**:
 ![Approval Testing Cycle](images/approval-testing.png)
 - If you include all those doctests in the actual files then it will be included in your functions and therefore slow them down.
@@ -218,8 +218,8 @@ def load_tests(loader, tests, ignore):
 - **Test Double** is when a class under test doesn't know it's not talking to a real object.
 - This allows you to control what happens to the class while being tested.
 - There are many kinds of *Test Doubles*:
-![Test Doubles](/images/test-double-types.png)
-- A **Stub** is something that stands in for a class of function that is difficult to use in a test case.
+![Test Doubles](images/test-double-types.png)
+- A **Stub** is something that stands in for a class or function that is difficult to use in a test case.
 - The example would be to pass a configured sensor object:
 ```python
 def __init__(self, sensor=None):
@@ -235,7 +235,7 @@ def test_check_too_low_presure_sounds_alarm(self):
 ```
 - *unittest* comes with something called **Mock** for building stubs.
 - You import it with `from unittest.mock import Mock`.
-- You instantiate and object usiing `Mock( <object> )`.
+- You instantiate an object usiing `Mock( <object> )`.
 - You can then assign values using ` obj.value_to_test.return_value = <n>`.
 - A *Mock* and a *Stub* are technically not the same thing, but it's not uncommon for people to mistake this.
 - An advantage of using a *Mock* is that it will make sure the interface is the same as the object you're really using.
@@ -261,7 +261,7 @@ def test_check_too_low_presure_sounds_alarm(self):
 ![Summary of Types of Test Doubles](images/Summary.png)
 - **Monkeypatching** is when you dynamically change code at runtime.
 - Also called **Metaprogramming**.
-- You have to tell patch which module you'll want to path and not which class it's actually in.
+- You have to tell patch which module you'll want to patch and not which class it's actually in.
 - An example would be `with patch('alarm.Sensor') as test_sensor_class` even though it's defined in `sensor.py`.
 - You will need to build a Mock to compare against:
 ```python

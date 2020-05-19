@@ -85,8 +85,8 @@
 - We're going to use image planes to help assist us in building.
 ![Image Planes for Geometry Building](images/image-planes-for-basics.png)
 - The images used as a reference are images.
-- You should change the width and hieght of the imported image to assist with details in building it.
-- You will want to move the images so they're on the oppisite side of hte scene facing away from the cameron.
+- You should change the width and height of the imported image to assist with details in building it.
+- You will want to move the images so they're on the opposite side of the scene facing away from the camera.
 ![Geometry Images View](images/geometry-reference-images.png)
 - You can use a sheet polygon to make sure the dimensions on the object line up on all axis:
 ![Geometry Alignment](images/geometry-alignment-trick.png)

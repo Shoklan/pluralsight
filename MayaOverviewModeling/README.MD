@@ -1,7 +1,7 @@
 # Maya 2019 Fundamentals: Overview and Modeling
 ## Justin Marshall
 
-# Getting Started with Maya
+# 1. Getting Started with Maya
 - The first step is to get familiar with the basic interface:
 ![Maya Interface](images/maya-interface.png)
 - The taskbar options will change based on what kind of task you're working on:
@@ -41,8 +41,10 @@
   3. Scaling  (`r`).
 - Here is what the move tool looks like:
 ![Move Tool](images/move-gizmo.png)
+
 - Here is what the rotate tool looks like:
 ![Rotate Tool](images/rotate-gizmo.png)
+
 - Scale starts at 1 instead of 0.
 - Now to create Geometries:
 ![Example of a Cube](images/created-cube.png)
@@ -79,7 +81,46 @@
 - The next kind is a different category called a **Non-Uniform Rational B-Spline** or **NURB**.
 
 
-# Modeling Basics
+# 2. Modeling Basics
+- We're going to use image planes to help assist us in building.
+![Image Planes for Geometry Building](images/image-planes-for-basics.png)
+- The images used as a reference are images.
+- You should change the width and hieght of the imported image to assist with details in building it.
+- You will want to move the images so they're on the oppisite side of hte scene facing away from the cameron.
+![Geometry Images View](images/geometry-reference-images.png)
+- You can use a sheet polygon to make sure the dimensions on the object line up on all axis:
+![Geometry Alignment](images/geometry-alignment-trick.png)
+- You can use wireframe on the viewport's toolbar to see both the geometry and the reference image.
+- You cannot re-shape a geometry if you don't have any subdivisions.
+- Try to minimize to the smallest amount of geometry you need.
+- Since you can mirror a side, you really only need to build a single side and get it correct.
+- Keep in mind that you can overshoot a little since it will shrink when you smooth it.
+- Now to mirror it, you use the Mirror option:
+![Mirror Object](images/mirror-geometry-option.png)
+- Beware the **Merge Threshold** which will collapse points if it is too large.
+- Now we'll want to consider the object thickness.
+- To do this, we're going to use the multicut option.
+- While holding down `CTRL`, you can add a new edge loop:
+![Adding an Edge Loop to a Geometry Surface](images/multicut-tool-for-edge-points.png)
+- Beware when bridging geometry that you don't make sharp edges you didn't intend.
+- Once done, **Bridge** the geometry.
+![Example of Bridged Geometry](images/bridged-geometry-example.png)
+- You can fill in any holes by adding a surface using the *Fill Hole* tool.
+- Now we can apply the smoothing.
+- It does this by creating a curved surface between the points you've laid out for it.
+- If you want sharper edges then put the points closer together.
+![Sharpen Edges](images/sharpen-edges-with-edge-loops.png)
+- You can enable a mirroring of the actions you perform for consistency:
+![Enable Symmetry](images/enable-symmetry-modifications.png)
+- You can use the `g` key to activate extrude.
+![Geometry Exclude](images/extrude-building.png)
+- You can hide anything not selected with `CTRL + 1`.
+- Pay attention to the selected tool since it will tell you if you've selected extra geometry.
+- If you delete an edge then it will leave the others behind so make sure the use `CTRL + DEL` to get all of them.
+- You can use `SHIFT + DRAG` to select and `CTRL + DRAG` to delect.
+- When you want to join to geometries together, you'll want to use the Combine after selecting both:
+![Combine Geometry](images/combine-geometry.png)
+
 
 # Adding Detail
 

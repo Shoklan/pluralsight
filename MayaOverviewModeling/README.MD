@@ -122,9 +122,19 @@
 ![Combine Geometry](images/combine-geometry.png)
 
 
-# Adding Detail
+# 3. Adding Detail
+- To turn an edge into a face, you can Bevel it.
+![Bevel Edges](images/convert-edge-to-face.png)
+- The Multi-cut tool will not know where to cut if it is not a Quad.
+- As you're working, always ask yourself if there is a smallest piece that can be duplicated.
+- You can dupliate geometry using `CTRL + D`.
+- You want a lot of subdivisions on objects that you're going to add lots of details to.
+- Lots of examples of what we're learned so far about thinking about geometry.
+- There are advanced duplication options under Edit Called **Duplicate Special** which will allow us to duplicate using mathematics.
+![Duplcate Special Example](images/duplicate-special-rotation.png)
 
-# FInishing the Framework
+
+# Finishing the Framework
 
 # Completing the Model
 

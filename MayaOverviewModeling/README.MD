@@ -134,7 +134,17 @@
 ![Duplcate Special Example](images/duplicate-special-rotation.png)
 
 
-# Finishing the Framework
+# 4. Finishing the Framework
+- It is a good idea to think about naming geometry based on its position, purpose.
+- We're going to take advantage of the fact that we build the model at the origin while mirroring the gun.
+- When you create a new group, the pivot of those objects is placed at the origin.
+- You can delete the history of objects using `ALT+SHIFT+D`:
+![Delete Geometry History](images/delete-geometry-history.png)
+- Lattice's are a great way to shape something that you need to keep high resolution.
+![Latice Deformer](images/latice deformer.png)
+![Latice Deformed](images/latice-deformed.png)
+- When you're about to extrude, if you set a very small offset then you don't have to add one later.
+
 
 # Completing the Model
 

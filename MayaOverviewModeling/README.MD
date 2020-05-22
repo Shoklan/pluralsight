@@ -32,9 +32,9 @@
 - You can also press the `q` key on your keyboard.
 - Then, you'll want to click on that object.
 - You can select multiple parts using `SHIFT+LMB`.
-- You can delect by holding down `CTRL` then `LMB`.
+- You can deselect by holding down `CTRL` then `LMB`.
 - You can also click down `LMB` and then drag the marquee to select multiple objects.
-- There is a heirarchy relationship that can be setup but that will be discussed later.
+- There is a hierarchy relationship that can be setup but that will be discussed later.
 - There are three **Transforms**:
   1. Movement (`w`).
   2. Rotation (`e`).
@@ -59,11 +59,11 @@
 - To add something to that layer, you'd select an object and right click:
 ![Add Object to Layer](images/add-object-to-layer.png)
 - You can create a new group from objects using `CTRL+G` in outliner once objects are selected.
-- If you select one object but want the group, then click the `ARROW UP` and you will move up the heirarchy.
+- If you select one object but want the group, then click the `ARROW UP` and you will move up the hierarchy.
 - The most basic geometry is called a **Polygon**.
 - In order to see the components of a *polygon*, we need to go to **Component Mode**.
 - You can `RMB` to get it:
-![Compnent Hotbar](images/component-hotbar.png)
+![Component Hotbar](images/component-hotbar.png)
 - ... or in the toolbar:
 ![Component Toolbar Location](images/component-toolbar-tool.png)
 - Or, hit `F8`.
@@ -75,8 +75,8 @@
 - Typically, quads are used when using malformed polygons more often.
 - If you select an object and hit `3` then you'll get a presentation of a smoothed version of the object.
 - If you hit `2` then you can see the cage for the object.
-- You can increae the amount of subdivisions to improve the smoothing:
-![Increase Polygon Primitve using Subdivisions](images/subdivisions-for-poly-primatives.png)
+- You can increase the amount of subdivisions to improve the smoothing:
+![Increase Polygon Primitive using Subdivisions](images/subdivisions-for-poly-primatives.png)
 - You can return to the base cube by pressing `1`.
 - The next kind is a different category called a **Non-Uniform Rational B-Spline** or **NURB**.
 
@@ -147,6 +147,10 @@
 
 
 # Completing the Model
+- The modeling tools just work better when dealing with straight lines.
+- To create a bridge, we need the same number of edges.
+- Lots of examples from what we've learned up to this point.
+
 
 # Research:
 

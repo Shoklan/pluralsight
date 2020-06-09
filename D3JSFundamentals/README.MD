@@ -335,6 +335,7 @@ function update(data){
 
 
 # Updating Your Bar Chart Data
+- Some more examples building one the previous two sections.
 
 
 # Add Interactivity

@@ -28,6 +28,7 @@
   1. HTML.
   2. SVG.
   3. canvas
+![Rendering Choices](images/rendering-choices.png)
 - HTML is meh; SVG is useful; use canvas for lots of elements.
 - It is harder to interact with *canvas*.
 - *SVG* stands for **Scalable Vector Graphics**.
@@ -166,6 +167,7 @@ d3.select('.bar-chart-container')
 ```
 - Scales map your data values to screenspace.
 - In D3 lexicon, the **Data Domain** is your input values and your output values are called the **Output Range**.
+![D3 Scale's Power](images/d3-scales-image.png)
 - We will do this now:
 ```js
 // use this to find the smallest,largest values:
@@ -237,35 +239,118 @@ const xAxisDraw = svg
 - Time to move to a scatterplot.
 - The process is basically the same but we'll just be drawing with different functions.
 - The y direction has an annoying issue were the data => pixel values is inverted.
+![Code for this](images/scale-reversal-xy.png)
+- The reason for this is where D3 and SVG think of as the origin:
+![The Coordinate Flip](images/the-coordinate-flip.png)
+![The Coordinate Flip Y](images/the-coordinate-flip-y.png)
+- And, here is the code:
+```js
+svg
+  .selectAll('.scatter')
+  .data(scatterData)
+  .enter()
+  .append('circle')
+  .attr('class', 'scatter')
+  .attr('cx', d => xScale(d.budget))
+  .attr('cy', d => yScale(d.revenue))
+  .attr('r', 3)
+  .style('fill', 'dodgerblue')
+  .style('fill-opacity', 0.7)
+```
+- We're just stealing the axis from the Bar chart at this point.
+- When you use `.setTicks(<n>)`, it wont guarantee that number but it should be close.
+- Line Charts are different than Scatter plots.
+![Scatter Plot Points vs Line Chart Paths](images/scatter-vs-lines.png)
 - An **SVG Path Definition** is described by many points, by necessity.
 ![SVG Path Definition](images/svg-path-definition.png)
+- Paths have a default fill color of black and will connect the last and first point together.
 
 
-# Updating Your Bar Chart Data
-- There is a general update pattern which allows you to keep updated data in sync with your visual elements on screen.
+# Updating Your Data
+- There is a **General Update Pattern** which allows you to keep updated data in sync with your visual elements on screen.
 - There are three Data change states:
   1. Enter state: new data rows.
   2. Update state: remaining data rows.
   3. Exit State: leaving data rows.
+![Data State Changes](images/data-state-change.png)
 - The main two services of data join are:
   1. Compares existing data to what is or isn't inside the DOM.
   2. Creates the three mentioned states.
 ![Visual Example of the Three States](images/data-changes-states-.png)
 - When you work with HTML5 Canvas or WebGL, there is no DOM and it will be raw pixels.
-- 
+- You can use the HTML5 Data API for the buttons:
+![HTML5 Data API](images/html5-data-api.png)
+- Selections have an `.on()` method to listen for events.
+- Then, after having a data array you can index into it:
+```js
+function click(){
+  const dataset = friends[this.dataset.name]
+}
+```
+- In D3v5, you can use the `.join()` method to work with each [update,exit,enter]:
+```js
+function update(data){
+  svg
+    .selectAll('text')
+    .data(data)
+    .join(
+      enter => enter
+        .apend('text')
+        .text(d => d)
+        .attr('x', 30)
+        .attr('y', (d,i) => i * 30 + 50)
+        .style('fill', 'dodgerblue'),
+      update => update
+        .style('fill', 'gray')
+        .attr('y', (d,i) => i * 30 + 50),
+      exit => exit.remove()
+    )
+}
+```
+- D3 is blind to the data row's content; it only sees the index by default.
+- We can tell it what values we care about with the **Key Function** added to the `.data()` as a second argument.
+```js
+//
+.selectAll('text')
+.data(data, d => d)
+.join(
+  //
+)
+```
+- Animated Transitions allow for **Object Constancy** which allow for better reasoning.
+- It draws focus on what changes instead of trying to reason about those changes.
+- D3 makes this simply by just adding `.transition()` to the method chain.
+- You can also do things like delay the transition with `.delay()`:
+![Example Code Transition](images/example-code-transition.png)
+- D3 will complain when you do this since it wants a D3 Selection returned.
+- You can resolve this by updating the code to:
+```js
+//
+.call(enter =>
+  enter
+    .transition()
+    .attr('x', 30))
 
+```
+
+
+# Updating Your Bar Chart Data
 
 
 # Add Interactivity
 
+
 # Working with Hierarchical Layouts.
+
 
 # The Reusable Module Pattern
 
 # Research:
+- `live-server`?
+
 
 # Reference:
 - [D3-Fetch Github](https://github.com/d3/d3-fetch/)
 - [Devdocs.io](https://devdocs.io)
 - [D3 Margin Convention](https://bl.ocks.org/mbostock/3079563)
--
+- [D3-Ease Github](https://github.com/d3/d3-ease/)

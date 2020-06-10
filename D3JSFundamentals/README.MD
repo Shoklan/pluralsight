@@ -330,7 +330,6 @@ function update(data){
   enter
     .transition()
     .attr('x', 30))
-
 ```
 
 
@@ -339,6 +338,21 @@ function update(data){
 
 
 # Add Interactivity
+- We'll start by adding a table that only displays on hover.
+- The first thing you can do is add a tooltip to the Div:
+```html
+<div class="tooltip"></div>
+```
+- You can use the clientX and clientY from `d3.event` object.
+![Mouse Over Tool Tip Start](images/tooltip-mouseover-handler.png)
+![Mouse Move or Move Out](images/mouse-move-or-mouse-over.png)
+![Add Table Data](images/tooltip-table-info.png)
+- When the user changes the bars, then the tablular data is not updated for the new data rows.
+- Now we will add what is called a **Brush**.
+- It is a D3 component that is part of an event system which monitors and interacts with users.
+- It is only supported while using SVG though.
+- You can add a brush like so:
+![Add a Brush Tool](images/add-a-brush.png)
 
 
 # Working with Hierarchical Layouts.

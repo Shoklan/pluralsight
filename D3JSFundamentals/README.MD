@@ -356,12 +356,35 @@ function update(data){
 
 
 # Working with Hierarchical Layouts.
+- A **D3 Layout** is technically just a function that takes your data and adds additional variables to it.
+![Layout Progression](images/layout-progression.png)
+- Trees have a root node with tree nodes hanging off of it.
+- While this is useful, we're going to try building a **Circle Packing** graph.
+- This allows you to vary the area to of the circle to represent a quantitative variable.
+- The first step is to get the data into a hierarchy to visualize.
+- The hierarchy is expected to be in a JOSN format when D3 uses it.
+- We'll be using the *d3-heirarchy* package to do this.
+- We need to tell D3 which values are for the id and for the parent.
+![Stratify Data](images/stratify-film-data.png)
+- Each node has access to a sum function which can sum all of its children.
+![Sum Film Heirarcy](images/sum-film-heirarchy.png)
+- Now we'll add the Pack Layout:
+![Draw Circles Code](images/draw-circles-code.png)
+- Changing this data structure to from a circle to a tree map.
+- Humans reason better with rectangular shapes than with circles.
+- Some layouts however require different sorts so make sure to read the docs.
+![Tree Map Code](images/tree-mapping-code.png)
+- Now we'll convert the data into an example of the most famous Hierarchical data visualization: the Tree.
+- You can draw the lines using the targets source and targets:
+![Draw Lines Code Examples](images/tree-draw-lines.png)
 
 
 # The Reusable Module Pattern
 
 # Research:
 - `live-server`?
+- Force Layout Diagrams?
+-
 
 
 # Reference:

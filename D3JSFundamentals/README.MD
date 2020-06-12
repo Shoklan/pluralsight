@@ -380,11 +380,23 @@ function update(data){
 
 
 # The Reusable Module Pattern
+- Now we're going to build a Reusable Module Pattern.
+- The **Reusable Charts** Convention was created by Mike Bostock.
+- At its core, it's a function that builds a chart.
+- When you're building this, you'll want the module to store the configs internally.
+- **Closures** are simply functions in a function.
+![Closure Visual Example](images/closure-visual-example.png)
+![Closure Implementation](images/implemenation-details.png)
+- There is another function called `.datum()` which is a little different than `.data()`.
+![Data vs Datum Functions](images/data-vs-datum.png)
+- While you could use `selection.data()`, using `selection.each()` allows us to iterate.
+- Here is the basic framework for any chart:
+![Basic Framework](images/basic-framework.png)
+
 
 # Research:
 - `live-server`?
 - Force Layout Diagrams?
--
 
 
 # Reference:

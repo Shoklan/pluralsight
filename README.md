@@ -12,7 +12,7 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Developing Faster with Vue CLI          | [/VueCLI]                         |  {2019/08/18}  |
 | Vue.js Fundamentals                     | [/VueFundamentals]                |  {2019/08/22}  |
 | Single Page Application with Vue.js     | [/VueSinglePage]                  |  {2019/08/24}  |
-| D3.js Data Visualization Fundamentals   | [/D3JSFundamentals]               |  { }           |
+| D3.js Data Visualization Fundamentals   | [/D3JSFundamentals]               |  {2020/06/10}  |
 | Laying Foundations for Pentest+         | [/FoundationsPenTest]             |  {2019/10/02}  |
 | Performing Incident Response & Handling | [/IRandH]                         |  {2019/12/03}  |
 | Building Apps with Vue.js and MongoDB   | [/VueWithMongo]                   |  {2020/04/30}  |

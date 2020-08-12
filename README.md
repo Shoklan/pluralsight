@@ -18,3 +18,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Building Apps with Vue.js and MongoDB   | [/VueWithMongo]                   |  {2020/04/30}  |
 | Maya Fundamentals:Overview and Modeling | [/MayaOverviewModeling]           |  {2020/05/22}  |
 | Secure Software Development             | [/]                               |                |
+| Zero to Production Node.js on AWS       | [/ZeroToProdNodeJS]               |       {}       |

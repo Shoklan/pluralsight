@@ -137,6 +137,50 @@ module.exports = Todo;
 
 
 # Production Environment
+- We're going to example a stack which can be used on AWS.
+- There are two real extremes here:
+  1. Completely managed for you; access via API.
+  2. Virtual Systems that you completely manage.
+- Somewhere in the middle is what we're going to use: **Amazon Elastic Beanstalk**.
+- It's really just EC2 instances that interpolate with other AWS services.
+- You can set some specified limits which will trigger new instances to be spun up.
+- A **Security Group** defines which resources a user/account is allowed to access or interact with.
+- You will want to install the *Elastic Beanstalk* CLI application - which is a python tool.
+- You can install it using `brew` or `pip` from the command line as well.
+- The python method is `pip install awsebcli`.
+![AWS Dashboard](images/aws-dashboard.png)
+- The first thing you'll want to do is create a new user for the application.
+  * Make sure you download the credentials.
+- The command to interact with *Beanstalk* will be `eb`.
+- You will first run `eb init` and it will ask you:
+  1. The region to run in.
+  2. Is this associated with an existing project?
+  3. The name of the application.
+  4. Is this language the correct base for the project?
+  5. Do you want to setup SSH access?
+  6. Asking for AWS Credentials.
+- Next you will wants an environment for the application to run in: `eb create`.
+- This will ask you:
+  1. Environment-Name?
+  2. What is the CNAME prefix for this application?
+  3. What is the load balancer configuration?: [classic,application]; Classic is fine.
+  4. Upload begins.
+- This will fail right now because we are missing some configuration options.
+- Make sure when creating the Database that you use the Dev/Test so it stays in the free tier.
+- Also make sure that the db name you use in production is what your application expects.
+- One of the things that we can do to improve performance is to allow nginx/apache to serve the static files.
+![Set Static](images/set-internal-static.png)
+  * **A** is the API call coming in.
+  * **B** is where the files are internally to the project.
+- We will want to set some environment variables.
+![Environment Configs](images/envinroment-configs.png)
+- When you queue a *Save** then the environment will start an update.
+  * It actually spins up a second instance and then will start accepting the traffic in place of the old one.
+![Setup Access to DB in Routes](images/setup-db-access.png)
+- Once all this is done, we'll run `eb deploy` to ship it all up and make it public for access.
+- So long as that works, then all you'll need to ever run with changes will be the `deploy` command.
+- The command `eb logs` will give us the last 100 lines from some different logs.
+- There are lots of options about how to swap them in and out along with the scaling triggers.
 
 
 # Front End Toolchain
@@ -156,6 +200,7 @@ module.exports = Todo;
 
 # Research:
 - Morgan middleware?
+- Blue-Green Deployment?
 
 
 # Reference:

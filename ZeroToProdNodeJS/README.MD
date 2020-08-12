@@ -84,6 +84,56 @@ grunt.loadTasks('bin/tasks');
 
 
 # The Database
+- Now we're going to look at how to use Node.js with a Relational Database.
+- We're going to use Postgres since there are usecases where it will be useful even NoSQL contains json.
+- if you're not calling sql directly via shell then you'll want to use `sequalize`.
+- It's the most feature rich Node.js ORM.
+- There are not a lot of tutorials or examples on the internet.
+- The file `.sequalizerc` configures some of the important configuration options.
+```js
+// Set default configuration for Sequelize
+const path = require('path');
+module.exports = {
+  config: path.resolve('db', 'database.js'),
+  'migrations-path': path.resolve('db', 'migrations'),
+  'models-path': path.resolve('src', 'server', 'models')
+};
+```
+- The migration files are a record of the changes being made.
+- They contain and `up` and `down` function for what is added and deleted.
+- The other place you will find database information will be in the db.js file.
+- It will contain a single instance of the sql object.
+- You will need to configure the connection informatoin in `index.js` inside the config folder:
+```js
+config.databaseUrl = 'postgres://localhost:5432/todos';
+config.databaseOptions = {
+  dialect: 'postgres',
+  logging: false,
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+};
+```
+The models folder is where you define the different kinds of tables/models:
+```js
+'use strict';
+
+const Sequelize = require('sequelize');
+const db = require('./db');
+
+let Todo = db.define('Todo', {
+  title: Sequelize.TEXT,
+  completed: Sequelize.BOOLEAN
+});
+
+module.exports = Todo;
+```
+- When you're going to create a new migration, then you'll want to run `sequalize migration:create`.
+- In the `up` function, we want to add a column to the existing database.
+![Code For DB Migration](images/db-creation-code.png)
+- Once the database has been updated, you'll want to update the models.js file.
 
 
 # Production Environment
@@ -110,3 +160,4 @@ grunt.loadTasks('bin/tasks');
 
 # Reference:
 - [Github Repo](github.com/kwhinnery/todomvc-plusplus)
+- [Sequalize Docs](http://docs.sequelizejs.com/manual/)

@@ -184,6 +184,12 @@ module.exports = Todo;
 
 
 # Front End Toolchain
+- We're going to take a look at *browserify* and *saas* now.
+- They're both CSS preprocessors.
+- *Browserify* creates cross platform js for your project.
+- *SaaS* creates the same but for CSS.
+- An alternative to *SaaS* is *less*.
+- Go read the docs.
 
 
 # Vue.js
@@ -201,6 +207,8 @@ module.exports = Todo;
 # Research:
 - Morgan middleware?
 - Blue-Green Deployment?
+- SaaS?
+- UI Kit?
 
 
 # Reference:

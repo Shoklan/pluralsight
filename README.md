@@ -19,3 +19,4 @@ A Place to Keep my Notes from the Pluralsight Classes
 | Maya Fundamentals:Overview and Modeling | [/MayaOverviewModeling]           |  {2020/05/22}  |
 | Secure Software Development             | [/]                               |                |
 | Zero to Production Node.js on AWS       | [/ZeroToProdNodeJS]               |       {}       |
+| Automating Networks with Python         | [/AutomateNetworkingPython]       |       {}       |

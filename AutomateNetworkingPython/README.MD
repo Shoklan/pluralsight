@@ -54,8 +54,46 @@ output = conn.recv(65535)
 
 
 # Responsibly Parsing Text Using Python
+- We're stepping into how to deal with parsing text since this will come up.
+- It's not enough to just write a parser; we should have a way to quickly test it.
+- A **Regex** is a pattern of text to be searched in a larger text.
+![Example Code of Regex](images/regex-example.png)
+- Python regex uses `\s+` to collect any kind of whitespace; `\S+` means anything not whitespace.
+- You can use `(?P<variable_name>\S+)` to collect from the the text an into variable `variable_name`.
+- You will search the text with `<pattern-complied>.search(<text>)` and it will return a match object.
+- If you get a match, then you can pull from the match object using the variable name declared as a key: `match.group("<variable_name>")`.
+- It is a shame how little unit testing is done in code, per teacher.
+- The advantage of doing this is any future changes will be tested for consistency.
+- All functions that start with `test_` are considered tests to pytest.
+- You can type `pytest .` to recursively call all tests.
+
 
 # Abstracting Networking Automation Tasks with NAPALM
+- We're going to now be talking about the package **NAPALM**.
+- It stands for *Network Automation and Programming Abstraction Layer with Multilayer Support*.
+- We'll import from the napalm package: `from napalm import get_network_driver`
+```python
+driver = get_network_driver(host["platform"])
+conn = driver(
+  hostname = host["name"], username="pyuser", password="pypass"
+)
+```
+- Instead of issuing commands, *napalm* supports many getters.
+- You can get basic information about the device using `conn.get_facts()`
+- You can merge the two configs together using:
+```python
+conn.load_merge_candidate(config=<config-text>)
+diff = conn.compare_config()
+if diff:
+    conn.commit_config()
+```
+- A Mathematical Set is an unsorted collection of unique elements.
+- We're going to focus on just the simple parts we need from Set Theory.
+- There are lots of other uses for *napalm*.
+  - Config replace
+  - Config rollback
+  - Python context managers.
+
 
 # Orchestrating Complex Processes with Nornir
 
@@ -64,6 +102,6 @@ output = conn.recv(65535)
 # Writing Production-Grade Python Code
 
 # Research:
-
+- NAPALM?
 
 # Reference:

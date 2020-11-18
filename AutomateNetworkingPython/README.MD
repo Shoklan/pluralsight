@@ -96,6 +96,41 @@ if diff:
 
 
 # Orchestrating Complex Processes with Nornir
+- We're going to be learning about a new but powerful tool: Nornir.
+- This is a pure python automation framework.
+- The results are collected in a simplified and concurrent heirarchy.
+- The core components look similar to **Ansible**.
+- There are four basic components:
+  1. Configuration File.
+  2. Inventory Files.
+  3. Variables.
+  4. Runbooks.
+- There is a host.yaml and groups.yaml file with which to organize hosts.
+- The *group.yaml* allows us to specify a key and then describe the elements in that group:
+![Example of Group](images/example-group-yaml.png)
+- Now we're going to check out the simplest runbook.
+```python
+from nornir import InitNornir
+from nornir.plugins.tasks.networking import napalm_get
+from nornir.plugins.tasks.networking import print_result
+
+nornir = InitNornir()
+result = nornir.run(task=napalm_get, getters=["get_facts"])
+
+print_results(result)
+```
+- The default number of works is 20.
+- Now let's explore writing custom tasks for a group.
+- To write the output to disk, you will want to import:
+```python
+import json
+# ...
+from nornir.plugins.tasks.files import write_file
+from nornir.plugins.functions.text import print_result
+```
+- When defining your own tasks, you will want to pass at least one argument: conventionally called `task`.
+![Ansible vs Nornir](images/compare-ansible-nornir.png)
+
 
 # Advancing Beyond SSH: Automating with APIs
 

@@ -133,6 +133,15 @@ from nornir.plugins.functions.text import print_result
 
 
 # Advancing Beyond SSH: Automating with APIs
+- An **Application Programming Interface** are a set of standardized operations which are easily consumed by programmers which return structured data.
+- NETCONF usually opens a connection using SHH over port 830.
+- Then they exchange hello's with capabilities each supports.
+- Then they can start running RPCs.
+- **YANG** stands for **Yet Another Next Generation** and specifies the structure that data should have.
+- Initially, *Nornir* didn't have a netconf plugin but that was then.
+- Now, you'll create a folder called `nornir_netconf` where you will keep all the files.
+- There is a package called *xmltodict* which can be installed to do just that.
+
 
 # Writing Production-Grade Python Code
 

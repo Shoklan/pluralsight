@@ -68,6 +68,7 @@ output = conn.recv(65535)
 - You can type `pytest .` to recursively call all tests.
 
 
+
 # Abstracting Networking Automation Tasks with NAPALM
 - We're going to now be talking about the package **NAPALM**.
 - It stands for *Network Automation and Programming Abstraction Layer with Multilayer Support*.
@@ -144,8 +145,22 @@ from nornir.plugins.functions.text import print_result
 
 
 # Writing Production-Grade Python Code
+- Error checking is something we always promise to  do later.
+- Most version control allows for concurrent development.
+- Developers can work on new features while the current code is maintaned.
+- This git command throws away uncommitted changes: `git checkout -- .`
+- You should consider checking if files exist before trying to read/write to them.
+- Nick uses the python package **black** to forcibly format code.
+- You can pass `--check` to see if it would change the file.
+- You can pass `--diff` to see what it would change.
+- **Linters** examine code at a cursury level for issues.
+- Makefiles speed up code by only compiling things that changed.
+- Makefiles enforce tabs; don't use spaces.
+
+
 
 # Research:
 - NAPALM?
+- Pylint?
 
 # Reference:
